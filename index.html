@@ -1,179 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KEELO OS // Interactive System Engine</title>
-  <style>
-    :root {
-      --theme-glow: #00f3ff;
-      --bg-dark: #03060a;
-      --panel-bg: rgba(4, 8, 15, 0.85);
-      --text-main: #d0e2ff;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { width: 100%; height: 100%; background: var(--bg-dark); font-family: system-ui, -apple-system, sans-serif; color: var(--text-main); overflow: hidden; }
-
-    /* INITIAL TERMINAL BOOT SEQUENCE PRELOADER */
-    #keelo-boot-overlay {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #020407; z-index: 9999; font-family: monospace; color: #00f3ff; padding: 40px;
-    }
-    .terminal-line { line-height: 1.6; margin-bottom: 6px; opacity: 0; transform: translateY(5px); animation: lineEmit 0.1s forwards; }
-    @keyframes lineEmit { to { opacity: 1; transform: translateY(0); } }
-
-    /* MASTER WRAPPER */
-    .keelo-reveal-wrapper {
-      position: relative; width: 100vw; height: 100vh; display: flex; flex-direction: column;
-      background-image: linear-gradient(rgba(3,6,10,0.4), rgba(3,6,10,0.4)), url('./keelo-reference.png');
-      background-size: cover; background-position: center;
-    }
-
-    /* HIGH-DENSITY OS MARQUEE TICKER */
-    .keelo-os-ticker { width: 100%; background: #05080c; border-bottom: 2px solid var(--theme-glow); padding: 12px 0; overflow: hidden; z-index: 10; }
-    .keelo-ticker-stream { display: inline-block; white-space: nowrap; animation: keeloEngineScroll 25s linear infinite; }
-    .keelo-ticker-stream span { display: inline-block; padding: 0 45px; font-family: monospace; font-size: 0.8rem; font-weight: 700; color: var(--theme-glow); text-shadow: 0 0 8px rgba(0, 243, 255, 0.5); letter-spacing: 1.5px; }
-    @keyframes keeloEngineScroll { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
-
-    /* TRANSPARENT HOVER AREAS */
-    .grid-layout-viewport {
-      position: relative; width: 100%; height: 100%;
-      display: grid; grid-template-columns: 450px 1fr 450px; grid-template-rows: 1fr 1fr 1fr;
-      padding: 40px; z-index: 5;
-    }
-    .grid-panel { background: transparent; border: 1px solid transparent; cursor: crosshair; transition: all 0.3s ease; z-index: 10; }
-    .grid-panel:hover { background: rgba(0, 243, 255, 0.02); border: 1px dashed rgba(0, 243, 255, 0.2); }
-
-    .panel-top-left  { grid-column: 1; grid-row: 1; }
-    .panel-mid-left  { grid-column: 1; grid-row: 2; }
-    .panel-bot-left  { grid-column: 1; grid-row: 3; }
-    .panel-top-right { grid-column: 3; grid-row: 1; }
-    .panel-mid-right { grid-column: 3; grid-row: 2; }
-    .panel-bot-right { grid-column: 3; grid-row: 3; }
-
-    /* CENTRAL DISPLAY INFORMATION MODULE */
-    .center-geometric-node {
-      grid-column: 2; grid-row: 1 / span 3;
-      align-self: center; justify-self: center;
-      width: 460px; padding: 30px; background: rgba(2, 4, 8, 0.9);
-      border: 1px solid var(--theme-glow); border-radius: 4px; text-align: center;
-      box-shadow: 0 0 20px rgba(0, 243, 255, 0.1); z-index: 10; backdrop-filter: blur(4px);
-    }
-    #mesh-title-display { font-family: monospace; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 12px; text-shadow: 0 0 10px var(--theme-glow); text-transform: uppercase; }
-    #mesh-desc-display { font-size: 0.85rem; line-height: 1.5; color: #a0aec0; }
-
-    /* SVG NETWORKS */
-    .keelo-vector-mesh { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
-    .data-stream-path { stroke-width: 1.5; stroke-dasharray: 40, 200; stroke-dashoffset: 0; opacity: 0.2; transition: all 0.4s ease; }
-    .data-stream-path.active-pulse { opacity: 1; stroke-width: 3; stroke: var(--theme-glow); animation: burstPath 1.2s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
-    @keyframes burstPath { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#030708" />
+  <meta name="description" content="KEELO by Urbtye — an organisation-agnostic executive operating system for persistent state, governed execution, evidence integrity and repeatable organisational control." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://www.urbyte.com.au/keelo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Urbtye" />
+  <meta property="og:title" content="Keelo — Executive Operating System by Urbtye" />
+  <meta property="og:description" content="Persistent state. Governed execution. Evidence integrity. Keelo is Urbtye's organisation-agnostic executive operating system." />
+  <meta property="og:url" content="https://www.urbyte.com.au/keelo" />
+  <meta property="og:image" content="https://www.urbyte.com.au/keelo/keelo-hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Keelo — Executive Operating System by Urbtye" />
+  <meta name="twitter:description" content="Persistent state, governed execution and evidence integrity for repeatable organisational control." />
+  <meta name="twitter:image" content="https://www.urbyte.com.au/keelo/keelo-hero.png" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"KEELO",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Web",
+    "description":"An organisation-agnostic executive operating system for persistent state, governed execution and evidence integrity.",
+    "creator":{"@type":"Organization","name":"Urbtye","url":"https://www.urbyte.com.au/"},
+    "url":"https://www.urbyte.com.au/keelo"
+  }
+  </script>
+  <title>Keelo — Urbytes Executive Operating System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="app">
+    <main class="viewport" aria-label="KEELO system map">
+      <div class="poster" id="poster">
+        <img src="keelo-hero.png" alt="KEELO system architecture overview" draggable="false" />
 
-  <div id="keelo-boot-overlay"><div id="terminal-log"></div></div>
+        <button class="hotspot overview" data-id="overview" aria-label="Open KEELO overview">
+          <span class="sr-only">KEELO overview</span>
+        </button>
+        <button class="hotspot what" data-id="what" aria-label="Open What Keelo is">
+          <span class="sr-only">What Keelo is</span>
+        </button>
+        <button class="hotspot core" data-id="core" aria-label="Open Core Architecture">
+          <span class="sr-only">Core Architecture</span>
+        </button>
+        <button class="hotspot why" data-id="why" aria-label="Open Why It Exists">
+          <span class="sr-only">Why It Exists</span>
+        </button>
+        <button class="hotspot design" data-id="design" aria-label="Open By Design">
+          <span class="sr-only">By Design</span>
+        </button>
+        <button class="hotspot boundaries" data-id="boundaries" aria-label="Open System Boundaries">
+          <span class="sr-only">System Boundaries</span>
+        </button>
 
-  <div class="keelo-reveal-wrapper">
-    <header class="keelo-os-ticker">
-      <div class="keelo-ticker-stream" id="ticker-marquee">
-        <span>[SYSTEM STATUS: KEELO RUNTIME NOMINAL]</span>
-        <span>⚡ DETERMINISTIC STATE MACHINES: OPERATIONAL</span>
-        <span>🔒 DBU BOUNDARY CONTROL: ACTIVE (ELIGIBILITY MATRIX ONLY)</span>
-        <span>📊 INVISIBLE WASTE GAP: 90-DAY ATTENTION +32,443%</span>
-        <span>🛠️ ADAPTER LAYER: INSULATING SYSTEM LOGIC FROM INFRASTRUCTURE SWAPS</span>
+        <div class="corner-status">
+          <span class="pulse"></span>
+          <span>INTERACTIVE SYSTEM MAP</span>
+        </div>
       </div>
-    </header>
-
-    <main class="grid-layout-viewport">
-      <div class="grid-panel panel-top-left" onmouseenter="showNodeDetails('telco')"></div>
-      <div class="grid-panel panel-mid-left" onmouseenter="showNodeDetails('evidence')"></div>
-      <div class="grid-panel panel-bot-left" onmouseenter="showNodeDetails('architecture')"></div>
-      
-      <div class="center-geometric-node">
-        <div id="mesh-title-display">KEELO ENGINE CORE</div>
-        <div id="mesh-desc-display">Neutral execution primitives for multi-party process governance. Hover over any system matrix panel to inspect runtime telemetry details.</div>
-      </div>
-
-      <div class="grid-panel panel-top-right" onmouseenter="showNodeDetails('governance')"></div>
-      <div class="grid-panel panel-mid-right" onmouseenter="showNodeDetails('design')"></div>
-      <div class="grid-panel panel-bot-right" onmouseenter="showNodeDetails('boundaries')"></div>
     </main>
 
-    <svg xmlns="http://w3.org" viewBox="0 0 1920 1080" class="keelo-vector-mesh" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="stream-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="var(--theme-glow)" stop-opacity="0.1"/>
-          <stop offset="100%" stop-color="var(--theme-glow)" stop-opacity="1"/>
-        </linearGradient>
-      </defs>
-      <g fill="none" stroke="url(#stream-glow)">
-        <path class="data-stream-path path-telco" d="M 960,540 C 700,450 400,200 250,200" />
-        <path class="data-stream-path path-evidence" d="M 960,540 C 700,540 400,540 250,540" />
-        <path class="data-stream-path path-architecture" d="M 960,540 C 700,630 400,880 250,880" />
-        <path class="data-stream-path path-governance" d="M 960,540 C 1220,450 1520,200 1670,200" />
-        <path class="data-stream-path path-design" d="M 960,540 C 1220,540 1520,540 1670,540" />
-        <path class="data-stream-path path-boundaries" d="M 960,540 C 1220,630 1520,880 1670,880" />
-      </g>
-    </svg>
+    <section class="signal-ticker" aria-label="KEELO operating principles">
+      <div class="ticker-track">
+        <span>Keelo // PERSISTENT STATE</span><b>◆</b>
+        <span>GOVERNED EXECUTION</span><b>◆</b>
+        <span>EVIDENCE LINEAGE</span><b>◆</b>
+        <span>DETERMINISTIC ACTIONS</span><b>◆</b>
+        <span>ORGANISATION ISOLATION</span><b>◆</b>
+        <span>ADAPTER-BASED BOUNDARIES</span><b>◆</b>
+        <span>Keelo // PERSISTENT STATE</span><b>◆</b>
+        <span>GOVERNED EXECUTION</span><b>◆</b>
+        <span>EVIDENCE LINEAGE</span><b>◆</b>
+        <span>DETERMINISTIC ACTIONS</span><b>◆</b>
+        <span>ORGANISATION ISOLATION</span><b>◆</b>
+        <span>ADAPTER-BASED BOUNDARIES</span><b>◆</b>
+      </div>
+    </section>
+
+
+    <section class="applications" id="applications">
+      <div class="section-heading applications-heading">
+        <div class="eyebrow">Keelo / INDUSTRY APPLICATIONS</div>
+        <h2>One governance layer. Multiple operating environments.</h2>
+        <p>Keelo applies the same persistent-state, evidence and governed-execution model across industries without putting industry-specific business logic into the Core.</p>
+      </div>
+
+      <div class="application-grid">
+        <article class="application-card">
+          <div class="application-top"><span>01 / ESG</span><b>ESG &amp; SUSTAINABILITY</b></div>
+          <h3>Evidence-backed ESG operations</h3>
+          <p>Connect commitments, source evidence, approvals and reported outcomes into a governed operational record.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Evidence lineage</li><li>Obligation tracking</li><li>Approval history</li><li>Reporting provenance</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Audit-ready evidence</strong><p>Reduce the effort required to reconstruct why a disclosure was made and what evidence supported it.</p></div>
+        </article>
+
+        <article class="application-card">
+          <div class="application-top"><span>02 / ASSURANCE</span><b>EVIDENCE &amp; COMPLIANCE</b></div>
+          <h3>Evidence provided, not reconstructed</h3>
+          <p>Preserve the chain from source event to decision, authority, execution and resulting evidence.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Evidence receipts</li><li>Decision provenance</li><li>Authority mapping</li><li>Exception records</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Faster assurance</strong><p>Give auditors, boards and control owners a coherent trail instead of fragmented screenshots and email history.</p></div>
+        </article>
+
+        <article class="application-card">
+          <div class="application-top"><span>03 / INFRA</span><b>INFRASTRUCTURE &amp; ASSETS</b></div>
+          <h3>Govern high-consequence operations</h3>
+          <p>Maintain durable operational context across assets, contractors, approvals, incidents and changing source systems.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Controlled work states</li><li>Contractor authority</li><li>Incident evidence</li><li>Cross-system continuity</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Lower execution variance</strong><p>Make repeatable actions follow explicit state and authority rather than individual memory.</p></div>
+        </article>
+
+        <article class="application-card">
+          <div class="application-top"><span>04 / ENERGY</span><b>ENERGY &amp; UTILITIES</b></div>
+          <h3>Coordinate regulated execution</h3>
+          <p>Govern actions that cross field operations, enterprise systems, environmental obligations and external parties.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Obligation state</li><li>Execution controls</li><li>Adapter integrations</li><li>Evidence retention</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Stronger operational control</strong><p>Keep authority and evidence intact as work moves between teams and systems.</p></div>
+        </article>
+
+        <article class="application-card">
+          <div class="application-top"><span>05 / GOVERNMENT</span><b>PUBLIC SECTOR</b></div>
+          <h3>Trace decisions to authority</h3>
+          <p>Preserve institutional continuity while keeping decisions, delegations, obligations and execution explainable.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Delegation records</li><li>Decision lineage</li><li>Organisation isolation</li><li>Governed workflows</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Institutional continuity</strong><p>Reduce dependence on key people by retaining the governed context behind operational decisions.</p></div>
+        </article>
+
+        <article class="application-card">
+          <div class="application-top"><span>06 / EXEC</span><b>EXECUTIVE GOVERNANCE</b></div>
+          <h3>Turn obligations into executable state</h3>
+          <p>Give executives a persistent view of what has been decided, who owns it, what evidence exists and what must happen next.</p>
+          <div class="cap-list">
+            <span>CAPABILITIES</span>
+            <ul><li>Decision register</li><li>Owned obligations</li><li>Execution status</li><li>Evidence integrity</li></ul>
+          </div>
+          <div class="gain"><span>GAIN</span><strong>Less governance drift</strong><p>Connect executive intent to governed execution without replacing the systems teams already use.</p></div>
+        </article>
+      </div>
+
+      <div class="benefit-strip">
+        <div><span>01</span><b>CONTINUITY</b><p>State survives staff and system change.</p></div>
+        <div><span>02</span><b>PROVABILITY</b><p>Evidence remains connected to decisions.</p></div>
+        <div><span>03</span><b>CONTROL</b><p>Actions respect explicit authority.</p></div>
+        <div><span>04</span><b>REPEATABILITY</b><p>Execution becomes deterministic.</p></div>
+        <div><span>05</span><b>INTEROPERABILITY</b><p>Adapters preserve source-system boundaries.</p></div>
+      </div>
+    </section>
+
+    <section class="impact" id="impact">
+      <div class="section-heading">
+        <div class="eyebrow">Keelo / OPERATIONAL IMPACT</div>
+        <h2>Where Keelo improves the operating system</h2>
+        <p>Illustrative performance indicators show the direction Keelo is designed to improve. Replace the sample figures below with verified client or internal benchmark data before publishing them as measured outcomes.</p>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-code">01 / CONTINUITY</span>
+          <strong>↓ 35%</strong>
+          <h3>Operational hand-off loss</h3>
+          <p>Persistent organisational state keeps decisions, obligations and context available across staff, systems and sessions.</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-code">02 / GOVERNANCE</span>
+          <strong>↑ 2.4×</strong>
+          <h3>Decision traceability</h3>
+          <p>Evidence lineage binds inputs, authority, decisions and outcomes into one reconstructable execution record.</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-code">03 / EXECUTION</span>
+          <strong>↓ 42%</strong>
+          <h3>Repeat-work variance</h3>
+          <p>Deterministic pathways reduce ad-hoc execution and make recurring governed actions more consistent.</p>
+        </article>
+        <article class="stat-card">
+          <span class="stat-code">04 / CONTROL</span>
+          <strong>↑ 100%</strong>
+          <h3>Action accountability</h3>
+          <p>Every governed action is tied to actor, authority, state transition and execution evidence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="contact-copy">
+        <div class="eyebrow">Keelo / CONTACT</div>
+        <h2>Talk to Urbtye about Keelo</h2>
+        <p>For architecture, implementation, pilot programs or integration into your organisation, contact Jarryd directly.</p>
+        <a class="urbyte-link" href="https://www.urbyte.com.au/" target="_blank" rel="noopener">RETURN TO URBTYE.COM.AU ↗</a>
+      </div>
+      <form class="contact-form" action="mailto:jarryd@urbyte.com.au" method="post" enctype="text/plain">
+        <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
+        <label><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
+        <label><span>Organisation</span><input type="text" name="organisation" autocomplete="organization"></label>
+        <label class="wide"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+        <button type="submit">SEND TO JARRYD@URBYTE.COM.AU <span>↗</span></button>
+      </form>
+    </section>
+
+    <footer class="site-footer">
+      <div class="ack">
+        <span class="footer-code">ACKNOWLEDGEMENT OF COUNTRY</span>
+        <p>Urbtye acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> URBTYE. ALL RIGHTS RESERVED.</span>
+        <nav aria-label="Legal">
+          <a href="terms.html">TERMS &amp; CONDITIONS</a>
+          <span>//</span>
+          <a href="privacy.html">PRIVACY</a>
+          <span>//</span>
+          <a href="mailto:jarryd@urbyte.com.au">CONTACT</a>
+        </nav>
+      </div>
+    </footer>
+
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+
+      <section class="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle">
+        <div class="panel-grid-bg"></div>
+
+        <header class="panel-rail">
+          <div class="rail-left">
+            <span>Keelo / URBTYE</span>
+            <span class="slash">//</span>
+            <span id="railCode">SYSTEM DETAIL</span>
+          </div>
+          <div class="rail-right">
+            <span class="dot"></span>
+            <span>GOVERNED EXECUTION</span>
+          </div>
+        </header>
+
+        <button class="close" data-close aria-label="Close">
+          <i></i><i></i>
+        </button>
+
+        <div class="panel-body">
+          <aside class="panel-index">
+            <div class="index-code" id="indexCode">01</div>
+            <div class="index-label" id="indexLabel">SYSTEM</div>
+            <div class="index-line"></div>
+            <p id="indexCopy"></p>
+
+            <div class="telemetry">
+              <div><span>STATE</span><b>PERSISTENT</b></div>
+              <div><span>AUTHORITY</span><b>GOVERNED</b></div>
+              <div><span>OWNER</span><b>URBTYE</b></div>
+            </div>
+          </aside>
+
+          <article class="panel-content">
+            <div class="eyebrow" id="eyebrow">Keelo SYSTEM</div>
+            <h1 id="panelTitle">Overview</h1>
+            <div class="accent"></div>
+            <p class="lead" id="lead"></p>
+
+            <div class="sections" id="sections"></div>
+          </article>
+        </div>
+
+        <footer class="panel-footer">
+          <span>DOCUMENT SOURCE: URBYTE.COM.AU/KEELO</span>
+          <span class="slash">//</span>
+          <span>CONTINUITY • AUTHORITY • EXECUTION</span>
+        </footer>
+      </section>
+    </div>
   </div>
 
-  <script>
-    const bootLogs = [
-      "[BOOT] Initializing Keelo OS Core Governance Layer Engine...",
-      "[LOAD] Extracting Neutral Architecture Execution Primitives...",
-      "[OK  ] Deterministic Runtime Core Verification Modules Online.",
-      "[WARN] Active Allocation Waste Gap Tracked: 90-Day Attention +32,443%",
-      "[LOAD] Mounting Replaceable Structural Adapters... Insulation Shield Hot.",
-      "[CONN] Activating Urbyte Commercial Wedge Telecommunications Layer...",
-      "[OK  ] Out-Of-Band Read-Only Ingestion Pipeline Anchored Safely.",
-      "[SYS ] DBU Boundary Access Grid Active. Mapping Core System Layout Map..."
-    ];
-
-    const logContainer = document.getElementById('terminal-log');
-    let logIndex = 0;
-    function printLog() {
-      if (logIndex < bootLogs.length) {
-        const line = document.createElement('div'); line.className = 'terminal-line'; line.innerText = bootLogs[logIndex];
-        logContainer.appendChild(line); logIndex++; setTimeout(printLog, Math.random() * 80 + 30);
-      } else {
-        setTimeout(() => {
-          const preloader = document.getElementById('keelo-boot-overlay');
-          preloader.style.opacity = '0'; setTimeout(() => preloader.remove(), 600);
-        }, 800);
-      }
-    }
-    window.addEventListener('DOMContentLoaded', printLog);
-
-    const systemNodes = {
-      telco: { title: "Telecommunications Layer", desc: "Agnostic verification infrastructure running above carrier network boundaries. Captures, logs, and reconciles hidden line data allowances automatically.", selector: ".path-telco", color: "#00f3ff" },
-      evidence: { title: "Observed Evidence Conduits", desc: "Bypasses blind billing reports by mapping actual physical usage logs. Creates a cryptographically auditable record line of absolute hardware facts.", selector: ".path-evidence", color: "#00ffcc" },
-      architecture: { title: "Core Architecture Primitives", desc: "The stateless runtime orchestration layer. Enforces state transitions and isolated organizational context processing chains smoothly.", selector: ".path-architecture", color: "#00f3ff" },
-      governance: { title: "Governed Intelligence Hub", desc: "Provides hard semantic boundaries and operational consensus containment structures to stop AI agent loop output fragmentation.", selector: ".path-governance", color: "#ff00ff" },
-      design: { title: "Deterministic Engine Design", desc: "Guarantees system operational transparency, hard identity verification, and multi-tenant sandboxing layout boundaries.", selector: ".path-design", color: "#00ffcc" },
-      boundaries: { title: "System Execution Boundaries", desc: "Maintains read-only ingestion streams without writing data to external databases or cross-contaminating internal business logic loops.", selector: ".path-boundaries", color: "#ffaa00" }
-    };
-
-    function showNodeDetails(nodeKey) {
-      const node = systemNodes[nodeKey]; if (!node) return;
-      document.getElementById('mesh-title-display').innerText = node.title;
-      document.getElementById('mesh-desc-display').innerText = node.desc;
-      document.documentElement.style.setProperty('--theme-glow', node.color);
-      document.querySelectorAll('.data-stream-path').forEach(p => p.classList.remove('active-pulse'));
-    const marquee = document.getElementById('ticker-marquee');
-    const pipelines = document.querySelectorAll('.data-stream-path');
-
-    marquee.addEventListener('animationiteration', () => {
-      pipelines.forEach(path => {
-        path.classList.remove('pulse-firing');
-        void path.offsetWidth;
-        path.classList.add('pulse-firing');
-      });
-    });
-
-    setTimeout(() => {
-      pipelines.forEach(p => p.classList.add('pulse-firing'));
-    }, 2500);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
