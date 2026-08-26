@@ -3,145 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keelo OS + Urbyte // Platform Unveiling</title>
+  <title>KEELO OS // Interactive System Engine</title>
   <style>
     :root {
       --theme-glow: #00f3ff;
       --bg-dark: #03060a;
-      --panel-border: rgba(0, 243, 255, 0.15);
       --panel-bg: rgba(4, 8, 15, 0.85);
       --text-main: #d0e2ff;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body, html {
-      width: 100%;
-      height: 100%;
-      background-color: var(--bg-dark);
-      font-family: system-ui, -apple-system, sans-serif;
-      color: var(--text-main);
-      overflow: hidden;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html { width: 100%; height: 100%; background: var(--bg-dark); font-family: system-ui, -apple-system, sans-serif; color: var(--text-main); overflow: hidden; }
 
     /* INITIAL TERMINAL BOOT SEQUENCE PRELOADER */
     #keelo-boot-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #020407;
-      z-index: 9999;
-      font-family: monospace;
-      color: #00f3ff;
-      padding: 40px;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #020407; z-index: 9999; font-family: monospace; color: #00f3ff; padding: 40px;
     }
+    .terminal-line { line-height: 1.6; margin-bottom: 6px; opacity: 0; transform: translateY(5px); animation: lineEmit 0.1s forwards; }
+    @keyframes lineEmit { to { opacity: 1; transform: translateY(0); } }
 
-    .terminal-line {
-      line-height: 1.6;
-      margin-bottom: 6px;
-      opacity: 0;
-      transform: translateY(5px);
-      animation: lineEmit 0.1s forwards;
-    }
-
-    @keyframes lineEmit {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* THE WRAPPER CONTAINER LAYER */
+    /* MASTER WRAPPER */
     .keelo-reveal-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      /* Reads your repository reference image seamlessly */
-      background-image: linear-gradient(rgba(3,6,10,0.85), rgba(3,6,10,0.85)), url('./Keelo-reference.png');
-      background-size: cover;
-      background-position: center;
+      position: relative; width: 100vw; height: 100vh; display: flex; flex-direction: column;
+      background-image: linear-gradient(rgba(3,6,10,0.4), rgba(3,6,10,0.4)), url('./keelo-reference.png');
+      background-size: cover; background-position: center;
     }
 
-    /* THE HIGH-DENSITY OS SYSTEM MARQUEE TICKER */
-    .keelo-os-ticker {
-      width: 100%;
-      background: #05080c;
-      border-bottom: 2px solid var(--theme-glow);
-      padding: 12px 0;
-      overflow: hidden;
-      z-index: 10;
-    }
+    /* HIGH-DENSITY OS MARQUEE TICKER */
+    .keelo-os-ticker { width: 100%; background: #05080c; border-bottom: 2px solid var(--theme-glow); padding: 12px 0; overflow: hidden; z-index: 10; }
+    .keelo-ticker-stream { display: inline-block; white-space: nowrap; animation: keeloEngineScroll 25s linear infinite; }
+    .keelo-ticker-stream span { display: inline-block; padding: 0 45px; font-family: monospace; font-size: 0.8rem; font-weight: 700; color: var(--theme-glow); text-shadow: 0 0 8px rgba(0, 243, 255, 0.5); letter-spacing: 1.5px; }
+    @keyframes keeloEngineScroll { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
-    .keelo-ticker-stream {
-      display: inline-block;
-      white-space: nowrap;
-      animation: keeloEngineScroll 25s linear infinite;
-    }
-
-    .keelo-ticker-stream span {
-      display: inline-block;
-      padding: 0 45px;
-      font-family: monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--theme-glow);
-      text-shadow: 0 0 8px rgba(0, 243, 255, 0.5);
-      letter-spacing: 1.5px;
-    }
-
-    @keyframes keeloEngineScroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
-
-    /* THE INFRASTRUCTURE VIEWPORT DATA GRID */
+    /* TRANSPARENT HOVER AREAS */
     .grid-layout-viewport {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-columns: 400px 1fr 400px;
-      grid-template-rows: 1fr 1fr 1fr;
-      padding: 30px;
-      gap: 20px;
-      z-index: 5;
+      position: relative; width: 100%; height: 100%;
+      display: grid; grid-template-columns: 450px 1fr 450px; grid-template-rows: 1fr 1fr 1fr;
+      padding: 40px; z-index: 5;
     }
-
-    .grid-panel {
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-border);
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 10;
-    }
-
-    .grid-panel:hover {
-      background: rgba(0, 243, 255, 0.05);
-      border-color: var(--theme-glow);
-      box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .grid-panel h3 {
-      font-family: monospace;
-      font-size: 0.95rem;
-      color: var(--theme-glow);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-
-    .grid-panel p {
-      font-size: 0.85rem;
-      line-height: 1.4;
-      color: #a0aec0;
-    }
+    .grid-panel { background: transparent; border: 1px solid transparent; cursor: crosshair; transition: all 0.3s ease; z-index: 10; }
+    .grid-panel:hover { background: rgba(0, 243, 255, 0.02); border: 1px dashed rgba(0, 243, 255, 0.2); }
 
     .panel-top-left  { grid-column: 1; grid-row: 1; }
     .panel-mid-left  { grid-column: 1; grid-row: 2; }
@@ -150,75 +52,29 @@
     .panel-mid-right { grid-column: 3; grid-row: 2; }
     .panel-bot-right { grid-column: 3; grid-row: 3; }
 
-    /* CENTRAL CONTROLLER MODULE */
+    /* CENTRAL DISPLAY INFORMATION MODULE */
     .center-geometric-node {
       grid-column: 2; grid-row: 1 / span 3;
       align-self: center; justify-self: center;
-      width: 480px; padding: 30px;
-      background: rgba(2, 4, 8, 0.9);
-      border: 2px solid var(--theme-glow);
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
-      z-index: 10;
+      width: 460px; padding: 30px; background: rgba(2, 4, 8, 0.9);
+      border: 1px solid var(--theme-glow); border-radius: 4px; text-align: center;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.1); z-index: 10; backdrop-filter: blur(4px);
     }
+    #mesh-title-display { font-family: monospace; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 12px; text-shadow: 0 0 10px var(--theme-glow); text-transform: uppercase; }
+    #mesh-desc-display { font-size: 0.85rem; line-height: 1.5; color: #a0aec0; }
 
-    #mesh-title-display {
-      font-family: monospace;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 12px;
-      text-shadow: 0 0 10px var(--theme-glow);
-    }
-
-    #mesh-desc-display {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: #a0aec0;
-    }
-
-    /* GLOWING DYNAMIC SVG CONNECTOR AXISES */
-    .keelo-vector-mesh {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .data-stream-path {
-      stroke-width: 2.5;
-      stroke-dasharray: 30, 150;
-      stroke-dashoffset: 0;
-    }
-
-    .data-stream-path.pulse-firing {
-      animation: dataStreamPulse 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    }
-
-    @keyframes dataStreamPulse {
-      0% {
-        stroke: var(--theme-glow);
-        stroke-dashoffset: 1000;
-        filter: drop-shadow(0 0 8px var(--theme-glow));
-      }
-      100% {
-        stroke: rgba(0, 243, 255, 0.05);
-        stroke-dashoffset: 0;
-      }
-    }
+    /* SVG NETWORKS */
+    .keelo-vector-mesh { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+    .data-stream-path { stroke-width: 1.5; stroke-dasharray: 40, 200; stroke-dashoffset: 0; opacity: 0.2; transition: all 0.4s ease; }
+    .data-stream-path.active-pulse { opacity: 1; stroke-width: 3; stroke: var(--theme-glow); animation: burstPath 1.2s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+    @keyframes burstPath { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
   </style>
 </head>
 <body>
 
-  <!-- TERMINAL BOOT INTERFACE RUNTIME LAYER -->
-  <div id="keelo-boot-overlay">
-    <div id="terminal-log"></div>
-  </div>
+  <div id="keelo-boot-overlay"><div id="terminal-log"></div></div>
 
   <div class="keelo-reveal-wrapper">
-    
-    <!-- HIGH-DENSITY ENGINE SYSTEM MARQUEE TICKER -->
     <header class="keelo-os-ticker">
       <div class="keelo-ticker-stream" id="ticker-marquee">
         <span>[SYSTEM STATUS: KEELO RUNTIME NOMINAL]</span>
@@ -226,53 +82,24 @@
         <span>🔒 DBU BOUNDARY CONTROL: ACTIVE (ELIGIBILITY MATRIX ONLY)</span>
         <span>📊 INVISIBLE WASTE GAP: 90-DAY ATTENTION +32,443%</span>
         <span>🛠️ ADAPTER LAYER: INSULATING SYSTEM LOGIC FROM INFRASTRUCTURE SWAPS</span>
-        <span>[SYSTEM STATUS: KEELO RUNTIME NOMINAL]</span>
-        <span>⚡ DETERMINISTIC STATE MACHINES: OPERATIONAL</span>
       </div>
     </header>
 
-    <!-- METRIC CARD PANEL GRID SCATTER -->
     <main class="grid-layout-viewport">
+      <div class="grid-panel panel-top-left" onmouseenter="showNodeDetails('telco')"></div>
+      <div class="grid-panel panel-mid-left" onmouseenter="showNodeDetails('evidence')"></div>
+      <div class="grid-panel panel-bot-left" onmouseenter="showNodeDetails('architecture')"></div>
       
-      <div class="grid-panel panel-top-left" onclick="toggleEngineMode('urbyte')">
-        <h3>1. Urbyte Commercial Wedge</h3>
-        <p>Independent, industry-agnostic verification system focused on telecommunications allocation-waste pipelines.</p>
+      <div class="center-geometric-node">
+        <div id="mesh-title-display">KEELO ENGINE CORE</div>
+        <div id="mesh-desc-display">Neutral execution primitives for multi-party process governance. Hover over any system matrix panel to inspect runtime telemetry details.</div>
       </div>
 
-      <div class="grid-panel panel-mid-left" onclick="toggleEngineMode('keelo')">
-        <h3>The Governance Gap in AI</h3>
-        <p>Rapid AI deployment exposes a critical need for persistent execution context and absolute authority structures.</p>
-      </div>
-
-      <div class="grid-panel panel-bot-left" onclick="toggleEngineMode('urbyte')">
-        <h3>Invoices vs. Independent Proof</h3>
-        <p>Standard enterprise invoices LACK a governed execution platform. Keelo connects usage tracking to defensible actions.</p>
-      </div>
-
-      <!-- MAIN CONTROL FRAME HOOD -->
-      <div class="center-geometric-node" id="central-hub-module">
-        <div id="mesh-title-display">KEELO CORE ENGINE</div>
-        <div id="mesh-desc-display">Neutral primitives for decentralized organizational governance and multi-party execution. Click around to explore components.</div>
-      </div>
-
-      <div class="grid-panel panel-top-right" onclick="toggleEngineMode('keelo')">
-        <h3>2. Keelo Operating System</h3>
-        <p>Agnostic infrastructure executive engine providing immutable event lineage and strict semantic context control.</p>
-      </div>
-
-      <div class="grid-panel panel-mid-right" onclick="toggleEngineMode('keelo')">
-        <h3>Deterministic Runtime</h3>
-        <p>Enforces system compliance across concurrency boundaries without pre-deciding internal corporate logic policies.</p>
-      </div>
-
-      <div class="grid-panel panel-bot-right" onclick="toggleEngineMode('urbyte')">
-        <h3>Replaceable Adapters</h3>
-        <p>Interfaces storage arrays and business models securely. Underlying hardware swaps out cleanly without breaking underlying state logic.</p>
-      </div>
-
+      <div class="grid-panel panel-top-right" onmouseenter="showNodeDetails('governance')"></div>
+      <div class="grid-panel panel-mid-right" onmouseenter="showNodeDetails('design')"></div>
+      <div class="grid-panel panel-bot-right" onmouseenter="showNodeDetails('boundaries')"></div>
     </main>
 
-    <!-- INLINE VECTOR PIPELINE CONNECTIONS -->
     <svg xmlns="http://w3.org" viewBox="0 0 1920 1080" class="keelo-vector-mesh" preserveAspectRatio="none">
       <defs>
         <linearGradient id="stream-glow" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -281,29 +108,16 @@
         </linearGradient>
       </defs>
       <g fill="none" stroke="url(#stream-glow)">
-        <path class="data-stream-path" d="M 960,540 C 700,450 400,200 250,200" />
-        <path class="data-stream-path" d="M 960,540 C 700,540 400,540 250,540" />
-        <path class="data-stream-path" d="M 960,540 C 700,630 400,880 250,880" />
-        <path class="data-stream-path" d="M 960,540 C 1220,450 1520,200 1670,200" />
-        <path class="data-stream-path" d="M 960,540 C 1220,540 1520,540 1670,540" />
-        <path class="data-stream-path" d="M 960,540 C 1220,630 1520,880 1670,880" />
+        <path class="data-stream-path path-telco" d="M 960,540 C 700,450 400,200 250,200" />
+        <path class="data-stream-path path-evidence" d="M 960,540 C 700,540 400,540 250,540" />
+        <path class="data-stream-path path-architecture" d="M 960,540 C 700,630 400,880 250,880" />
+        <path class="data-stream-path path-governance" d="M 960,540 C 1220,450 1520,200 1670,200" />
+        <path class="data-stream-path path-design" d="M 960,540 C 1220,540 1520,540 1670,540" />
+        <path class="data-stream-path path-boundaries" d="M 960,540 C 1220,630 1520,880 1670,880" />
       </g>
     </svg>
-
   </div>
 
-  <!-- PLATFORM LOGIC & SWITCH INTERFACE LOGIC ENGINE -->
-  <script>
-    const bootLogs = [
-      "[BOOT] Initializing Keelo OS Core Governance Layer Engine...",
-      "[LOAD] Extracting Neutral Architecture Execution Primitives...",
-      "[OK  ] Deterministic Runtime Core Verification Modules Online.",
-      "[WARN] Active Allocation Waste Gap Tracked: 90-Day Attention +32,443%",
-      "[LOAD] Mounting Replaceable Structural Adapters... Insulation Shield Hot.",
-      "[CONN] Activating Urbyte Commercial Wedge Telecommunications Layer...",
-      "[OK  ] Out-Of-Band Read-Only Ingestion Pipeline Anchored Safely.",
-      "[SYS ] DBU Boundary Access Grid Active. Mapping Core System Layout Map..."
-        <!-- PLATFORM LOGIC & SWITCH INTERFACE LOGIC ENGINE -->
   <script>
     const bootLogs = [
       "[BOOT] Initializing Keelo OS Core Governance Layer Engine...",
@@ -318,58 +132,34 @@
 
     const logContainer = document.getElementById('terminal-log');
     let logIndex = 0;
-
     function printLog() {
       if (logIndex < bootLogs.length) {
-        const line = document.createElement('div');
-        line.className = 'terminal-line';
-        line.innerText = bootLogs[logIndex];
-        logContainer.appendChild(line);
-        logIndex++;
-        setTimeout(printLog, Math.random() * 120 + 50);
+        const line = document.createElement('div'); line.className = 'terminal-line'; line.innerText = bootLogs[logIndex];
+        logContainer.appendChild(line); logIndex++; setTimeout(printLog, Math.random() * 80 + 30);
       } else {
         setTimeout(() => {
           const preloader = document.getElementById('keelo-boot-overlay');
-          preloader.style.transition = 'opacity 0.6s ease';
-          preloader.style.opacity = '0';
-          setTimeout(() => preloader.remove(), 600);
-        }, 1000);
+          preloader.style.opacity = '0'; setTimeout(() => preloader.remove(), 600);
+        }, 800);
       }
     }
     window.addEventListener('DOMContentLoaded', printLog);
 
-    const engineModes = {
-      keelo: {
-        title: "KEELO OPERATING SYSTEM",
-        desc: "Organization-agnostic executive architecture running neutral primitives for process governance, deterministic state transitions, and persistent lineage control.",
-        accentColor: "#00f3ff"
-      },
-      urbyte: {
-        title: "URBYTE COMMERCIAL WEDGE",
-        desc: "A target commercial engine application running over Keelo primitives. Translates invisible telecommunications allocation leakages into verifiable social context metrics.",
-        accentColor: "#00ffcc"
-      }
+    const systemNodes = {
+      telco: { title: "Telecommunications Layer", desc: "Agnostic verification infrastructure running above carrier network boundaries. Captures, logs, and reconciles hidden line data allowances automatically.", selector: ".path-telco", color: "#00f3ff" },
+      evidence: { title: "Observed Evidence Conduits", desc: "Bypasses blind billing reports by mapping actual physical usage logs. Creates a cryptographically auditable record line of absolute hardware facts.", selector: ".path-evidence", color: "#00ffcc" },
+      architecture: { title: "Core Architecture Primitives", desc: "The stateless runtime orchestration layer. Enforces state transitions and isolated organizational context processing chains smoothly.", selector: ".path-architecture", color: "#00f3ff" },
+      governance: { title: "Governed Intelligence Hub", desc: "Provides hard semantic boundaries and operational consensus containment structures to stop AI agent loop output fragmentation.", selector: ".path-governance", color: "#ff00ff" },
+      design: { title: "Deterministic Engine Design", desc: "Guarantees system operational transparency, hard identity verification, and multi-tenant sandboxing layout boundaries.", selector: ".path-design", color: "#00ffcc" },
+      boundaries: { title: "System Execution Boundaries", desc: "Maintains read-only ingestion streams without writing data to external databases or cross-contaminating internal business logic loops.", selector: ".path-boundaries", color: "#ffaa00" }
     };
 
-    function toggleEngineMode(modeKey) {
-      const config = engineModes[modeKey];
-      const titleDisplay = document.getElementById('mesh-title-display');
-      const descDisplay = document.getElementById('mesh-desc-display');
-      const rootStyle = document.documentElement.style;
-
-      titleDisplay.style.opacity = 0;
-      descDisplay.style.opacity = 0;
-      
-      setTimeout(() => {
-        titleDisplay.innerText = config.title;
-        descDisplay.innerText = config.desc;
-        rootStyle.setProperty('--theme-glow', config.accentColor);
-        
-        titleDisplay.style.opacity = 1;
-        descDisplay.style.opacity = 1;
-      }, 200);
-    }
-
+    function showNodeDetails(nodeKey) {
+      const node = systemNodes[nodeKey]; if (!node) return;
+      document.getElementById('mesh-title-display').innerText = node.title;
+      document.getElementById('mesh-desc-display').innerText = node.desc;
+      document.documentElement.style.setProperty('--theme-glow', node.color);
+      document.querySelectorAll('.data-stream-path').forEach(p => p.classList.remove('active-pulse'));
     const marquee = document.getElementById('ticker-marquee');
     const pipelines = document.querySelectorAll('.data-stream-path');
 
@@ -387,4 +177,3 @@
   </script>
 </body>
 </html>
-
