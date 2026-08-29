@@ -358,3 +358,125 @@ body{position:static}
   height:100vh;
   overflow:hidden;
 }
+
+
+/* --- Mobile-first rendering fixes (2026-08) --- */
+@media (max-width: 760px){
+  /* Keep the entire 16:9 system map visible instead of cropping a desktop-width poster. */
+  .viewport{
+    width:100%;
+    height:auto;
+    min-height:0;
+    padding:env(safe-area-inset-top) 0 0;
+    place-items:start stretch;
+    overflow:visible;
+  }
+  .poster{
+    width:100%;
+    height:auto;
+    max-width:100vw;
+    aspect-ratio:16/9;
+    margin:0;
+    box-shadow:0 18px 55px rgba(0,0,0,.55);
+  }
+  .poster>img{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+    object-fit:contain;
+  }
+
+  /* Make the interactive regions easier to tap without moving their visual alignment. */
+  .hotspot::before{inset:-5px}
+  .hotspot::after{inset:-6px}
+  .corner-status{display:none}
+
+  .signal-ticker::before,
+  .signal-ticker::after{width:7vw}
+  .ticker-track{gap:20px;padding:13px 0;font-size:8px;letter-spacing:.16em}
+
+  .applications,
+  .impact{padding:64px 18px 70px}
+  .section-heading{margin-bottom:30px}
+  .section-heading h2,
+  .contact-copy h2{font-size:clamp(30px,9vw,42px)}
+  .section-heading p,
+  .contact-copy p{font-size:13px;line-height:1.65}
+
+  .application-grid,
+  .stats-grid,
+  .benefit-strip{grid-template-columns:1fr}
+  .application-card,
+  .stat-card{min-height:0}
+  .application-card{padding:22px}
+  .stat-card{padding:22px}
+
+  .contact-band{
+    grid-template-columns:1fr;
+    gap:34px;
+    padding:64px 18px;
+  }
+  .contact-form{
+    grid-template-columns:1fr;
+    gap:13px;
+  }
+  .contact-form .wide,
+  .contact-form button{grid-column:auto}
+  .contact-form input,
+  .contact-form textarea{
+    min-height:48px;
+    font-size:16px; /* prevents iOS Safari input zoom */
+  }
+  .contact-form button{
+    width:100%;
+    min-height:48px;
+    justify-self:stretch;
+  }
+
+  .site-footer{padding:48px 18px 24px}
+  .ack{margin-bottom:38px;text-align:left}
+  .footer-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .footer-bottom nav{justify-content:flex-start}
+
+  /* Modal becomes a safe, edge-aware phone sheet with one-column content. */
+  .modal{padding:env(safe-area-inset-top) 8px env(safe-area-inset-bottom)}
+  .panel{
+    width:100%;
+    height:min(94svh,820px);
+    max-height:94svh;
+    clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);
+  }
+  .panel-rail,
+  .panel-footer{height:46px;padding:0 14px;font-size:7px;letter-spacing:.12em}
+  .panel-body{inset:46px 0}
+  .panel-index{display:none}
+  .panel-content{
+    padding:54px 18px 40px;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  .panel-content h1{font-size:clamp(30px,10vw,44px)}
+  .lead{font-size:14px;line-height:1.65;margin-bottom:24px}
+  .sections{grid-template-columns:1fr}
+  .section-card{min-height:0}
+  .close{
+    top:55px;
+    right:12px;
+    width:44px;
+    height:44px;
+  }
+  .close i{left:12px;top:21px}
+}
+
+@media (max-width: 420px){
+  .applications,
+  .impact,
+  .contact-band{padding-left:16px;padding-right:16px}
+  .application-top{gap:10px;align-items:flex-start}
+  .benefit-strip>div{padding:18px 16px}
+  .panel-content{padding-left:16px;padding-right:16px}
+}
