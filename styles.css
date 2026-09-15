@@ -480,3 +480,65 @@ body{position:static}
   .benefit-strip>div{padding:18px 16px}
   .panel-content{padding-left:16px;padding-right:16px}
 }
+
+/* Execution Path Ledger */
+.execution-ledger-terminal{
+  margin:32px 0 0;
+  padding:28px;
+  overflow-x:auto;
+  border:1px solid var(--line);
+  background:#030708;
+  font:600 12px/1.9 "IBM Plex Mono",monospace;
+  letter-spacing:.02em;
+  white-space:pre;
+}
+@media (max-width: 720px){
+  .execution-ledger-terminal{padding:20px 16px;font-size:10px}
+}
+
+
+/* Operational Impact — responsive audited metric cards */
+.stats-grid{
+  align-items:stretch;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.stat-card{
+  box-sizing:border-box;
+  min-width:0;
+  min-height:450px;
+  height:auto;
+  overflow:visible;
+  display:flex;
+  flex-direction:column;
+}
+.stat-card > strong{
+  font-size:2.2rem;
+  line-height:1.08;
+  white-space:nowrap;
+}
+.stat-card p{
+  overflow-wrap:anywhere;
+}
+.stat-card p strong{
+  display:inline;
+  margin:0;
+  font:inherit;
+  color:inherit;
+}
+@media (max-width:1100px){
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:620px){
+  .stats-grid{grid-template-columns:1fr;}
+  .stat-card{min-height:0;}
+  .stat-card > strong{font-size:2rem;}
+}
+
+/* Industry application metric indicators */
+.application-metric{
+  margin:18px 0 10px;
+  font:300 clamp(24px,2.2vw,34px)/1.08 "Space Mono",monospace;
+  letter-spacing:-.04em;
+  color:#eef7f8;
+  white-space:normal;
+}
