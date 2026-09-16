@@ -2,7 +2,7 @@
 const content = {
   overview: {
     code: "01", label: "Keelo",
-    eyebrow: "Keelo / URBTYE",
+    eyebrow: "Keelo / URBYTE",
     title: "Executive operating system",
     intro: "Keelo is an organisation-agnostic executive operating system for persistent state, governed execution and evidence integrity. It sits above operational tools to preserve continuity, authority and repeatable execution.",
     summary: "The durable governance layer that lets an organisation know what is true, who is authorised, what happened, and what happens next.",
