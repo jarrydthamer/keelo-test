@@ -12,12 +12,14 @@ Included:
 - Terms & Conditions and Privacy pages
 - SEO metadata, Open Graph, Twitter card, JSON-LD, robots.txt and sitemap.xml
 
-## Deploy under the Urbtye website
+## Deploy the Keelo site
 
 Recommended URL:
-`https://www.urbyte.com.au/keelo`
+`https://keelo.urbyte.com.au/`
 
-Upload this folder as the `/keelo` route/directory in the existing Urbtye web project. If the main website is React/Next/Vite rather than static HTML, port the section markup/CSS into that project instead of iframe embedding it.
+Deploy this repository as the Keelo subdomain at `https://keelo.urbyte.com.au/`.
+
+Do not duplicate the primary Keelo entity surface under `/keelo/` on the Urbyte root domain. Before changing Keelo positioning, SEO, metadata or structured data, read `docs/KEELO-CANONICAL.md`.
 
 Important: the four impact figures are deliberately labelled in the page copy as illustrative. Replace them with verified benchmark/client figures before presenting them as measured claims.
 

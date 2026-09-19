@@ -4,13 +4,13 @@ const content = {
     code: "01", label: "Keelo",
     eyebrow: "Keelo / URBYTE",
     title: "Executive operating system",
-    intro: "Keelo is an organisation-agnostic executive operating system for persistent state, governed execution and evidence integrity. It sits above operational tools to preserve continuity, authority and repeatable execution.",
-    summary: "The durable governance layer that lets an organisation know what is true, who is authorised, what happened, and what happens next.",
+    intro: "Keelo is an industry- and organisation-agnostic, agentic Executive Operating System delivered as Waste Recovery Software as a Service (WRSaaS). It provides a persistent governance and execution runtime that detects, verifies, governs, acts on, measures, reduces and prevents systemic operational waste.",
+    summary: "The organisation-agnostic governance and execution engine for evidence, persistent state, authorised execution, durable execution receipts and verified outcomes.",
     sections: [
       {title:"Persistent state", text:"Keelo maintains the durable operational state of an organisation across people, sessions, vendors and source systems.", bullets:["Canonical organisational context","Versioned decisions and obligations","Recoverable execution state"]},
       {title:"Governed execution", text:"Actions move through explicit authority boundaries rather than ad-hoc operator behaviour.", bullets:["Policy-aware action gates","Deterministic state transitions","Traceable approvals and overrides"]},
       {title:"Evidence integrity", text:"Every governed action is tied to provenance so outcomes can be explained, reconstructed and audited.", bullets:["Evidence lineage","Actor and system attribution","Decision-to-outcome traceability"]},
-      {title:"Organisation agnostic", text:"The core does not encode one company's workflow. Urbtye configures organisational instances over neutral primitives.", bullets:["Reusable governance primitives","Organisation-scoped configuration","Adapter-driven integrations"]}
+      {title:"Organisation agnostic", text:"The core does not encode one organisation\'s workflow. Organisation-specific manifests remain outside Keelo Core. Urbyte operates as a production instance of Keelo.", bullets:["Reusable governance primitives","Organisation-scoped configuration","Adapter-driven integrations"]}
     ]
   },
   what: {
@@ -18,8 +18,11 @@ const content = {
     eyebrow:"Keelo / WHAT IT IS",
     title:"What Keelo is",
     intro:"Keelo is the persistent governance and execution layer between organisational intent and the systems that carry it out. It becomes the canonical operational system of record for governed actions.",
-    summary:"A system of record for governed operations — not simply a dashboard, workflow builder or data warehouse.",
+    summary:"An Executive Operating System for governed operations — not an AI assistant, chatbot, workflow product, dashboard, monitoring tool, FinOps product, policy engine or Urbyte-specific application.",
     sections:[
+      {title:"WRSaaS",text:"WRSaaS means Waste Recovery Software as a Service: a service model for detecting, verifying, governing, recovering, reducing and preventing systemic operational waste.",bullets:["Waste recovery","Waste reduction","Waste prevention"]},
+      {title:"Operating loop",text:"Detect → Verify → Govern → Act → Measure → Reduce → Prevent",bullets:["Evidence before action","Authorised execution","Measured and verified outcomes"]},
+      {title:"Urbyte relationship",text:"Keelo is the engine. Urbyte is a production instance of Keelo. Urbyte proves. Keelo governs.",bullets:["Organisation-specific manifests remain outside Keelo Core","Evidence and persistent state govern execution","Durable execution receipts preserve accountability"]},
       {title:"Governance layer",text:"Keelo defines which actions are permissible, under what authority and with what evidence.",bullets:["Explicit authority model","Policy-bound transitions","Controlled exceptions"]},
       {title:"Operational record",text:"It maintains a canonical, organisation-scoped view of decisions, obligations, actions and state.",bullets:["Single governed context","State history","Durable references"]},
       {title:"Execution after verification",text:"An action is executed only after identity, authority, state and evidence requirements are satisfied.",bullets:["Precondition checks","Deterministic execution","Post-action verification"]},
