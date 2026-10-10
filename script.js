@@ -4,13 +4,13 @@ const content = {
     code: "01", label: "Keelo",
     eyebrow: "Keelo / URBYTE",
     title: "Executive operating system",
-    intro: "Keelo is an industry- and organisation-agnostic, agentic Executive Operating System delivered as Waste Recovery Software as a Service (WRSaaS). It provides a persistent governance and execution runtime that detects, verifies, governs, acts on, measures, reduces and prevents systemic operational waste.",
+    intro: "KƎƎLO™ is the Executive Operating System. Compute-Agnostic Governed Execution Infrastructure evaluates policy and current delegated authority before controlled effective execution. Capability ≠ Authority. WRSaaS™ means Waste Recovery Software as a Service, the commercial and operating model.",
     summary: "The organisation-agnostic governance and execution engine for evidence, persistent state, authorised execution, durable execution receipts and verified outcomes.",
     sections: [
       {title:"Persistent state", text:"Keelo maintains the durable operational state of an organisation across people, sessions, vendors and source systems.", bullets:["Canonical organisational context","Versioned decisions and obligations","Recoverable execution state"]},
       {title:"Governed execution", text:"Actions move through explicit authority boundaries rather than ad-hoc operator behaviour.", bullets:["Policy-aware action gates","Deterministic state transitions","Traceable approvals and overrides"]},
       {title:"Evidence integrity", text:"Every governed action is tied to provenance so outcomes can be explained, reconstructed and audited.", bullets:["Evidence lineage","Actor and system attribution","Decision-to-outcome traceability"]},
-      {title:"Organisation agnostic", text:"The core does not encode one organisation\'s workflow. Organisation-specific manifests remain outside Keelo Core. Urbyte operates as a production instance of Keelo.", bullets:["Reusable governance primitives","Organisation-scoped configuration","Adapter-driven integrations"]}
+      {title:"Organisation agnostic", text:"The core does not encode one organisation\'s workflow. Organisation-specific manifests remain outside Keelo Core. Urbyte™ is a domain-specific implementation built on KƎƎLO™.", bullets:["Reusable governance primitives","Organisation-scoped configuration","Adapter-driven integrations"]}
     ]
   },
   what: {
@@ -22,7 +22,7 @@ const content = {
     sections:[
       {title:"WRSaaS",text:"WRSaaS means Waste Recovery Software as a Service: a service model for detecting, verifying, governing, recovering, reducing and preventing systemic operational waste.",bullets:["Waste recovery","Waste reduction","Waste prevention"]},
       {title:"Operating loop",text:"Detect → Verify → Govern → Act → Measure → Reduce → Prevent",bullets:["Evidence before action","Authorised execution","Measured and verified outcomes"]},
-      {title:"Urbyte relationship",text:"Keelo is the engine. Urbyte is a production instance of Keelo. Urbyte proves. Keelo governs.",bullets:["Organisation-specific manifests remain outside Keelo Core","Evidence and persistent state govern execution","Durable execution receipts preserve accountability"]},
+      {title:"Urbyte relationship",text:"Urbyte™ performs domain-specific evidence qualification. Built on KƎƎLO™, the organisation-neutral Executive Operating System. Urbyte™ proves the condition. KƎƎLO™ governs the response.",bullets:["Organisation-specific manifests remain outside Keelo Core","Evidence and persistent state govern execution","Durable execution receipts preserve accountability"]},
       {title:"Governance layer",text:"Keelo defines which actions are permissible, under what authority and with what evidence.",bullets:["Explicit authority model","Policy-bound transitions","Controlled exceptions"]},
       {title:"Operational record",text:"It maintains a canonical, organisation-scoped view of decisions, obligations, actions and state.",bullets:["Single governed context","State history","Durable references"]},
       {title:"Execution after verification",text:"An action is executed only after identity, authority, state and evidence requirements are satisfied.",bullets:["Precondition checks","Deterministic execution","Post-action verification"]},
@@ -124,6 +124,7 @@ function openPanel(id, trigger){
 }
 
 function closePanel(){
+  document.body.style.overflow = "";
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden","true");
   if(lastTrigger) lastTrigger.focus();

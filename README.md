@@ -21,7 +21,7 @@ Deploy this repository as the Keelo subdomain at `https://keelo.urbyte.com.au/`.
 
 Do not duplicate the primary Keelo entity surface under `/keelo/` on the Urbyte root domain. Before changing Keelo positioning, SEO, metadata or structured data, read `docs/KEELO-CANONICAL.md`.
 
-Important: the four impact figures are deliberately labelled in the page copy as illustrative. Replace them with verified benchmark/client figures before presenting them as measured claims.
+Important: the four impact figures are deliberately labelled in the page copy as Destination Case. Replace them with verified benchmark/client figures before presenting them as measured claims.
 
 - Industry Applications layer directly under ticker:
   ESG & Sustainability, Evidence & Compliance, Infrastructure & Assets,
@@ -45,10 +45,10 @@ This package now includes phone-specific overrides in `styles.css` so the 16:9 K
 
 SEO metadata in `index.html` includes an improved title, crawl directives, Open Graph/Twitter image alt text, and JSON-LD for `Organization`, `WebSite`, `WebPage`, `SoftwareApplication` and breadcrumbs.
 
-### Important parent-site changes
+### Cross-property discovery
+Urbyte links to https://keelo.urbyte.com.au/ and its proofs.html page. KƎƎLO remains an independent Executive Operating System at that subdomain. Its own robots.txt and sitemap.xml describe its own routes. Do not introduce a duplicate /keelo entity surface on Urbyte.
 
-To help Google discover KEELO as part of Urbtye and potentially surface it as a sitelink, add a normal crawlable link from the Urbtye homepage or primary navigation to `/keelo`. A ready-to-paste example is included in `URBTYE-HOMEPAGE-KEELO-BUTTON.html`.
+## Canonical positioning and public evidence
+Read docs/KEELO-CANONICAL.md before editing. The system-map homepage stays at /. Controlled Proofs & Public Submissions is at /proofs.html. docs/EVIDENCE-REGISTER.md records SHA-256 checksums for the 13 supplied public/redacted PDFs. Historical specifications and companion summaries are not extra completed runs.
 
-`robots.txt` must be deployed at `https://www.urbyte.com.au/robots.txt` to control the whole site. Merge its sitemap directive into the existing root robots file rather than relying on `/keelo/robots.txt`.
-
-Likewise, merge the KEELO URL into the main root sitemap served at `https://www.urbyte.com.au/sitemap.xml`. Google chooses sitelinks algorithmically, so markup cannot force a KEELO sitelink; clear internal navigation, indexing, canonical URLs and sitemap inclusion make it easier for Google to understand the relationship.
+No merge or production deployment is authorised by the alignment pull request.

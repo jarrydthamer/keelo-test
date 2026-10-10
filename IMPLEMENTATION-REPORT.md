@@ -40,7 +40,7 @@ The supplied Keelo site contains quantitative or absolute claims that should be 
 - 1,336.1 t
 - Keelo governs what happens next.
 
-The README itself says four impact figures were deliberately illustrative and should be replaced with verified benchmark/client figures before being presented as measured claims. These claims therefore remain a review item rather than being rewritten as facts.
+The README itself says four impact figures were deliberately identified as Destination Case and should be replaced with verified benchmark/client figures before being presented as measured claims. These claims therefore remain a review item rather than being rewritten as facts.
 
 ## Deployment safety
 This delivery intentionally excludes `.git`, `node_modules`, generated build folders and unrelated packaging. For GitHub, do not upload the enclosing ZIP as the website. Extract the patch and upload/commit the individual changed files, or use Git locally and push a commit. This avoids the common failure mode where a ZIP upload or oversized web upload ends on a GitHub 404/error page.
