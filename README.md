@@ -21,7 +21,7 @@ Deploy this repository as the Keelo subdomain at `https://keelo.urbyte.com.au/`.
 
 Do not duplicate the primary Keelo entity surface under `/keelo/` on the Urbyte root domain. Before changing Keelo positioning, SEO, metadata or structured data, read `docs/KEELO-CANONICAL.md`.
 
-Important: the four impact figures are deliberately labelled in the page copy as illustrative. Replace them with verified benchmark/client figures before presenting them as measured claims.
+Important: the four impact figures are deliberately labelled in the page copy as Destination Case. Replace them with verified benchmark/client figures before presenting them as measured claims.
 
 - Industry Applications layer directly under ticker:
   ESG & Sustainability, Evidence & Compliance, Infrastructure & Assets,

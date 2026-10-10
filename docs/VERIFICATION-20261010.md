@@ -15,7 +15,7 @@ Prepared ZIP baselines compared against current GitHub main. Urbyte base `30a7e1
 | Internal links and fragments | PASS, checked local files and Urbyte rewrite mappings on changed pages |
 | Evidence links | PASS, 13 linked PDFs present and parse with pypdf |
 | Evidence integrity | PASS, all 13 PDFs byte-identical to supplied package; SHA-256 register committed |
-| Calculator executable regression | PASS in jsdom, 2,000 services × AUD 50 monthly gives AUD 1,200,000 annual spend and AUD 420,000 illustrative waste; zero-service case gives zero |
+| Calculator executable regression | PASS in jsdom, 2,000 services × AUD 50 monthly gives AUD 1,200,000 annual spend and AUD 420,000 modelled waste; zero-service case gives zero |
 | System-map executable regression | PASS in jsdom, all six panels open, Escape closes, page scrolling restored |
 | Navigation, imagery and forms | PASS, original nav hrefs, image sources and complete form markup unchanged |
 | Homepage inline JavaScript | PASS, byte-equivalent script content preserved |
@@ -41,7 +41,7 @@ Urbyte's Consumer links currently target `/`; this existing destination is prese
 The Urbyte homepage has a mailto contact CTA rather than a form. KƎƎLO's existing contact form markup and action are retained. No external enquiries were sent.
 
 ## Evidence and assurance
-Source PDFs retain titles, dates, historical status and limitations. The data-centre summary and fleet appendix are supporting material, not extra independent proof runs. Submission 48 and the consultation record are public submissions, not endorsements. Existing KƎƎLO exposure copy was aligned to the reports: AUD 616,678.14 and 1,336.136 t CO2-e are estimated exposures, not realised savings or measured reductions. Illustrative application metrics are explicitly labelled.
+Source PDFs retain titles, dates, historical status and limitations. The data-centre summary and fleet appendix are supporting material, not extra independent proof runs. Submission 48 and the consultation record are public submissions, not endorsements. Existing KƎƎLO exposure copy was aligned to the reports: AUD 616,678.14 and 1,336.136 t CO2-e are estimated exposures, not realised savings or measured reductions. Destination Case application targets are explicitly labelled.
 
 ## Release status
 Prepared for separate review pull requests. No merge, force-push, production deployment or DNS modification authorised. Approval remains required before merge/deployment. External logo/font loading and actual contact delivery should be checked in the approved release environment.
