@@ -1,73 +1,72 @@
-# Keelo — Canonical Definition
+# KƎƎLO™ / Urbyte™ — Canonical Positioning (Frozen)
 
-## Canonical Definition
+## Urbyte™
+**Category:** Independent Allocation-Waste Verification
 
-Keelo is an industry- and organisation-agnostic, agentic Executive
-Operating System delivered as Waste Recovery Software as a Service
-(WRSaaS).
+**Purpose:** Recovering value from verified allocation waste.
 
-It provides a persistent governance and execution runtime that detects,
-verifies, governs, acts on, measures, reduces and prevents systemic
-operational waste.
+**Relationship:** Urbyte™ proves the condition. **Built on KƎƎLO™.**
 
-## Short Canonical Form
+## KƎƎLO™
+**Category:** Executive Operating System
 
-Keelo is an organisation-agnostic Executive Operating System for
-governing the detection, verification, recovery and prevention of
-systemic operational waste.
+**Technical architecture:** Compute-Agnostic Governed Execution Infrastructure
 
-## Category
+**Constitutional principle:** Capability ≠ Authority
 
-Executive Operating System (EOS)
+**Role:** KƎƎLO™ governs the response.
 
-## Delivery Model
+## WRSaaS™
+**Operating model:** Waste Recovery Software as a Service.
 
-WRSaaS — Waste Recovery Software as a Service
+## Givabit™
+**Role:** Social impact mechanism associated with the Urbyte offering.
 
-## Architecture
+## Canonical relationship
+Urbyte™ proves the condition. KƎƎLO™ governs the response.
 
-Organisation-agnostic governance and execution runtime.
+Urbyte™ performs domain-specific evidence qualification; KƎƎLO Core enforces organisation-neutral policy, delegated authority and governed execution. KƎƎLO is a standalone platform architecture and is not limited to Urbyte or waste recovery.
 
-## Canonical Operating Loop
+## Execution architecture
+System intent → distinct material ingress → `OrganisationPolicyEvaluator` → `DelegatedExecutionAuthorityService` → `GovernedExecutionGateway` → authorised controlled effect → receipt → outcome evidence → reconciliation.
 
-Detect → Verify → Govern → Act → Measure → Reduce → Prevent
+This is a conceptual description; actual handler composition is specified by the tested implementation and its proof configuration. The nine distinct route contracts in `KEELO-NO-MEANS-NO-001` converge at the gateway.
 
-## Relationship to Urbyte
+## Controlled assurance
+- `KEELO-NO-MEANS-NO-001`: nine materially distinct runtime routes; 100,000 attempts; 90,000 prohibited commands denied; 10,000 authorised effects; zero unauthorised effects, duplicates or route-substitution bypasses in the tested configuration.
+- `KEELO-ROGUE-FLEET-001`: 10,000 synthetic agents; 100,000 commands; 10,000 authorised effective executions; zero unauthorised or duplicate effects; three forced runtime interruptions recovered; deterministic reproduction matched.
+- Enterprise fleet, data-centre, quantum-derived candidate and authority-revocation evidence are presented in their own supplied redacted reports, with their individual maturity and scope qualifications.
+- Submission 48 (12 September 2026) includes a controlled 1,000-service proof annex and requested policy recommendations. It is a parliamentary submission, not endorsement or certification.
+- The Australian Government consultation submission record (9 October 2026) is an acknowledgement of submission, not evidence of adoption.
 
-Keelo is the engine.
+Exactly-once language is limited to the tested effective-execution contract and receiver observations, not universal distributed semantics. The tests do not establish customer production deployment or universal security.
 
-Urbyte is a production instance of Keelo.
+## Terminology
+Do not define KƎƎLO as an AI assistant, retrospective audit tool, reporting dashboard or mere overlay. Durable evidence and audit trails support execution accountability; they are not the system's category.
 
-Urbyte proves → Keelo governs.
+## Internal brand shorthand
+Urbyte™ proves. KƎƎLO™ governs. WRSaaS™ commercialises. Givabit™ humanises.
 
-Organisation-specific manifests remain outside Keelo Core.
+## Public model and implementation topology
+Public model: Evidence → Authority → Execution → Outcome → Reconciliation.
 
-Keelo governs authorised execution against evidence, persistent state,
-authority and accountability boundaries.
+Detailed topology: System Intent → Material Ingress → KƎƎLO Core → Authorised Execution → Controlled Effect → Durable Receipt → Outcome Verification → Reconciliation.
 
-Keelo preserves durable execution receipts and verified outcomes.
+| Component | Role |
+| --- | --- |
+| `OrganisationPolicyEvaluator` | Evaluate organisation policy outside domain qualification |
+| `DelegatedExecutionAuthorityService` | Evaluate current delegated execution authority |
+| `GovernedExecutionGateway` | Enforce the effective-execution boundary |
+| Effective execution adapters | Apply controlled effects through the tested receiver contract |
+| Durable execution state | Retain state, pending obligations and recoverable outcomes |
+| Idempotency controls | Prevent repeat effects within the tested contract |
+| Evidence lineage | Connect source evidence, conditions, decisions and outcomes |
+| Execution receipts | Record durable receiver observations |
+| Reconciliation | Match governed commands and outcomes; retain unresolved obligations |
 
-## Explicitly Not
+## Maturity
+- Evidenced/Current: supplied controlled results and public submission records.
+- Next Proving Work: production connectors, broader authority-revocation sequences and measured post-action outcomes require their own evidence.
+- Destination Case: wider resource-domain application. No unverified deployments are claimed.
 
-Keelo is not:
-
-- an AI assistant
-- a chatbot
-- a workflow product
-- a dashboard
-- a monitoring tool
-- a FinOps product
-- a policy engine
-- an Urbyte-specific application
-
-## Terminology Rule
-
-Do not independently redefine Keelo.
-
-When introducing Keelo to a new audience, prefer:
-
-"Keelo, the organisation-agnostic Executive Operating System..."
-
-or:
-
-"Keelo, an agentic Executive Operating System delivered as WRSaaS..."
+Givabit™ connects verified recovery to real-world human and community benefit through supported pathways.
