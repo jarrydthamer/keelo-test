@@ -382,19 +382,66 @@
 
 
     <section class="impact execution-ledger" aria-labelledby="executionLedgerTitle">
-      <div class="section-heading">
+      <div class="section-heading execution-ledger-heading">
         <div class="eyebrow">Keelo / EXECUTION PATH LEDGER</div>
-        <h2 id="executionLedgerTitle">The Execution Path Ledger</h2>
+        <h2 id="executionLedgerTitle">From Intent to Verified Outcome.</h2>
+        <p>Governed execution moves from declared intent through current authority, controlled effect and durable reconciliation.</p>
       </div>
-      <pre class="execution-ledger-terminal"><code>System Intent
-  ↓ Material Ingress
-  ↓ KƎƎLO Core
-  ↓ Authorised Execution
-  ↓ Controlled Effect
-  ↓ Durable Receipt
-  ↓ Outcome Verification
-  ↓ Reconciliation</code></pre>
-<p>This implementation topology expands the public Evidence → Authority → Execution → Outcome → Reconciliation model. <a href="proofs.html">Review the tested configurations and source reports.</a></p>
+      <div class="execution-architecture" aria-label="KƎƎLO governed execution architecture">
+        <div class="execution-architecture-rail" aria-hidden="true">
+          <span>EXECUTION CONTROL PATH</span>
+          <span>AUTHORITY VERIFIED INLINE</span>
+        </div>
+        <ol class="execution-flow">
+          <li class="execution-node">
+            <span class="execution-step">01 / INTENT</span>
+            <strong>System Intent</strong>
+            <p>The requested operating objective enters the governed path.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">02 / INGRESS</span>
+            <strong>Material Ingress</strong>
+            <p>Evidence, context and proposed action are received.</p>
+          </li>
+          <li class="execution-node execution-core">
+            <div class="execution-core-head">
+              <span class="execution-step">03 / AUTHORITY BOUNDARY</span>
+              <span class="authority-principle">Capability ≠ Authority</span>
+            </div>
+            <strong>KƎƎLO Core</strong>
+            <p class="execution-core-role">Inline execution-authority boundary</p>
+            <ol class="execution-core-services" aria-label="KƎƎLO Core authority services">
+              <li><code>OrganisationPolicyEvaluator</code></li>
+              <li><code>DelegatedExecutionAuthorityService</code></li>
+              <li><code>GovernedExecutionGateway</code></li>
+            </ol>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">04 / EFFECT</span>
+            <strong>Authorised Controlled Effect</strong>
+            <p>Only the currently authorised action reaches execution.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">05 / RECEIPT</span>
+            <strong>Durable Receipt</strong>
+            <p>The effective execution state is recorded durably.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">06 / VERIFY</span>
+            <strong>Outcome Verification</strong>
+            <p>Observed results are checked against the authorised intent.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">07 / RECONCILE</span>
+            <strong>Reconciliation</strong>
+            <p>Intent, authority, effect and outcome are resolved together.</p>
+          </li>
+        </ol>
+        <div class="execution-ledger-footer">
+          <p>This diagram represents the tested architectural model. It does not claim universal control of every external execution path.</p>
+          <a href="proofs.html">Review controlled proofs and source reports <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
     </section>
 
     
