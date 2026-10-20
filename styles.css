@@ -753,3 +753,27 @@ body{position:static}
   color:#eef7f8;
   white-space:normal;
 }
+
+/* Technical baseline — compact verification cards and safe metric wrapping */
+#impact > .stats-grid:first-of-type{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  max-width:1320px;
+  margin-bottom:18px;
+}
+#impact > .stats-grid:first-of-type .stat-card{
+  min-height:190px;
+}
+#impact > .stats-grid .stat-card > strong{
+  white-space:normal;
+  overflow-wrap:break-word;
+  font-size:clamp(1.45rem,2.35vw,2.1rem);
+  line-height:1.18;
+  letter-spacing:-.035em;
+}
+#impact > .stats-grid .stat-card{
+  min-width:0;
+}
+@media(max-width:620px){
+  #impact > .stats-grid:first-of-type{grid-template-columns:1fr;}
+  #impact > .stats-grid:first-of-type .stat-card{min-height:0;}
+}
