@@ -834,3 +834,7 @@ body{position:static}
 .platform-comparison-table a{color:#87dce6;text-underline-offset:3px}
 .comparison-footnote{max-width:1320px;margin:17px auto 0;font-size:11px;line-height:1.65;color:#9fb4b8}
 @media(max-width:700px){.platform-comparison-table th,.platform-comparison-table td{padding:13px 12px}.comparison-footnote{font-size:10px}}
+
+/* Hero ticker overlaps the lower system-map artwork, masking its baked-in footer */
+.viewport + .signal-ticker{position:relative;z-index:8;margin-top:-48px;min-height:48px;background:#061014;box-shadow:0 -8px 24px rgba(2,6,7,.8)}
+@media(max-width:760px){.viewport + .signal-ticker{margin-top:-25px;min-height:25px}}
