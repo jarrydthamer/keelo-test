@@ -113,6 +113,16 @@
 .keelo-positioning-flow span{border:1px solid rgba(90,180,220,.4);padding:12px 14px;border-radius:6px;background:#0c1b25}
 .keelo-positioning-flow b{color:#6bcfff}
 .keelo-positioning a{color:#77d7ff;text-decoration:underline}
+
+/* Complete operating lifecycle; the execution ledger remains a separate architecture. */
+.keelo-operating-loop{margin:28px 0}
+.keelo-operating-loop .keelo-loop-label{font:600 11px/1.5 "Space Mono",monospace;letter-spacing:.12em;color:#73d4ff}
+.keelo-loop-stages{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:18px;margin:14px 0 0;padding:0;list-style:none}
+.keelo-loop-stages li{position:relative;min-width:0;padding:18px 8px;border:1px solid rgba(90,180,220,.4);border-radius:6px;background:#0c1b25;text-align:center;font-size:14px;color:#edf8ff}
+.keelo-loop-stages li span{display:block;margin-bottom:8px;font:11px/1.4 "Space Mono",monospace;color:#73d4ff}
+.keelo-loop-stages li:not(:last-child)::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:#6bcfff}
+.keelo-loop-return{margin:0 8px;padding:14px 8px 10px;border:1px solid rgba(90,180,220,.4);border-top:0;border-radius:0 0 12px 12px;text-align:center;color:#73d4ff;font:10px/1.6 "Space Mono",monospace;letter-spacing:.06em}
+@media(max-width:720px){.keelo-loop-stages{grid-template-columns:1fr;gap:18px}.keelo-loop-stages li{padding:12px;display:flex;align-items:center;gap:14px;text-align:left}.keelo-loop-stages li span{margin:0}.keelo-loop-stages li:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-19px;transform:translateX(50%)}}
 </style>
 </head>
 <body>
@@ -180,8 +190,18 @@
     <p>KƎƎLO™ connects decisions to permission, action and proof of the result.</p>
     <h3>CAPABILITY ≠ AUTHORITY</h3>
     <p>Just because an AI system can do something doesn't mean it is allowed to. KƎƎLO™ checks organisational rules and delegated permission before actions proceed, then preserves what happened and who was accountable.</p>
-    <div class="keelo-positioning-flow" aria-label="Evidence, authority, execution, outcome, reconciliation">
-      <span>Evidence</span><b>→</b><span>Authority</span><b>→</b><span>Execution</span><b>→</b><span>Outcome</span><b>→</b><span>Reconciliation</span>
+    <div class="keelo-operating-loop" role="group" aria-label="Seven-stage operating loop: Detect, Verify, Govern, Act, Measure, Reduce, Prevent, then return to Detect">
+      <p class="keelo-loop-label">THE SEVEN-STAGE OPERATING LOOP</p>
+      <ol class="keelo-loop-stages">
+        <li><span>01</span>Detect</li>
+        <li><span>02</span>Verify</li>
+        <li><span>03</span>Govern</li>
+        <li><span>04</span>Act</li>
+        <li><span>05</span>Measure</li>
+        <li><span>06</span>Reduce</li>
+        <li><span>07</span>Prevent</li>
+      </ol>
+      <div class="keelo-loop-return" aria-hidden="true">↶ RETURN TO DETECT — CONTINUOUS VERIFICATION</div>
     </div>
    <p><strong>Built on KƎƎLO™</strong> Urbyte™ is the first commercial allocation-waste verification implementation of KƎƎLO™. Urbyte™ verifies allocation waste and recovers value from verified waste, while KƎƎLO™ provides the underlying authority, policy, execution and reconciliation framework. WRSaaS™ is the commercial operating model.</p>
 
