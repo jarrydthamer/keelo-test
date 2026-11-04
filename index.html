@@ -113,6 +113,12 @@
 .keelo-positioning-flow span{border:1px solid rgba(90,180,220,.4);padding:12px 14px;border-radius:6px;background:#0c1b25}
 .keelo-positioning-flow b{color:#6bcfff}
 .keelo-positioning a{color:#77d7ff;text-decoration:underline}
+
+/* Decorative emblem beneath the hero; content remains above the watermark. */
+.keelo-emblem-backdrop{position:relative;isolation:isolate;overflow:hidden}
+.keelo-emblem-backdrop::before{content:"";position:absolute;z-index:0;pointer-events:none;inset:0;background:url("keelo-watermark.webp") right center / min(62vw,700px) auto no-repeat;opacity:.13;mix-blend-mode:screen;mask-image:linear-gradient(to right,transparent 20%,#000 65%);-webkit-mask-image:linear-gradient(to right,transparent 20%,#000 65%)}
+.keelo-emblem-backdrop .keelo-positioning-inner{position:relative;z-index:1}
+@media(max-width:720px){.keelo-emblem-backdrop::before{background-position:calc(100% + 120px) center;background-size:580px auto;opacity:.08}}
 </style>
 </head>
 <body>
@@ -172,7 +178,7 @@
     </section>
 
 
-    <section class="keelo-positioning" aria-labelledby="keelo-positioning-title">
+    <section class="keelo-positioning keelo-emblem-backdrop" aria-labelledby="keelo-positioning-title">
   <div class="keelo-positioning-inner">
     <p class="keelo-positioning-kicker">KƎƎLO™</p>
     <h2 id="keelo-positioning-title">The Agentic Executive Operating System</h2>
