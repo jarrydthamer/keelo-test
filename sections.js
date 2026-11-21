@@ -11,7 +11,10 @@ if (sectionsMenu && sectionsButton) {
     sectionsButton.focus({ preventScroll: true });
   });
   sectionsMenu.addEventListener("click", (event) => {
-    if (event.target === sectionsMenu) sectionsMenu.close();
+    const link = event.target.closest("a[href]");
+    if (event.target === sectionsMenu || (link && link.pathname === location.pathname && link.hash)) {
+      sectionsMenu.close();
+    }
   });
 }
 
