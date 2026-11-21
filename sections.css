@@ -142,3 +142,12 @@
 @media (max-width: 650px) {
   .ledger-detail-steps { grid-template-columns: 1fr; }
 }
+
+#impact .section-heading a {
+  color: #9bd5d8;
+  text-underline-offset: .2em;
+}
+#impact .section-heading a:hover,
+#impact .section-heading a:focus-visible {
+  color: var(--cyan);
+}
