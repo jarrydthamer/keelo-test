@@ -6,7 +6,10 @@
   position: fixed;
   z-index: 30;
   top: max(6px, env(safe-area-inset-top));
-  right: max(8px, env(safe-area-inset-right));
+  left: max(8px, env(safe-area-inset-left));
+}
+.keelo-menu-toggle-overview {
+  top: max(44px, min(9vw, 15svh), env(safe-area-inset-top));
 }
 .keelo-menu-toggle,
 .keelo-menu-heading button {
@@ -79,11 +82,6 @@
 .keelo-menu-toggle:focus-visible {
   outline: 2px solid #6cecff;
   outline-offset: 2px;
-}
-.keelo-section-links {
-  justify-content: center;
-  padding: 8px 14px;
-  background: #050b0d;
 }
 .keelo-footer-nav { margin: 16px 0; }
 .keelo-aux-footer { border-top: 1px solid #263538; }
