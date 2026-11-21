@@ -55,7 +55,14 @@
 </head>
 <body>
   <div id="app">
-    <div class="keelo-site-header"><a class="keelo-brand" href="/">KƎƎLO™</a><nav class="keelo-nav " aria-label="Primary"><a href="/">Overview</a><a href="/architecture">Architecture</a><a href="/proofs" aria-current="page">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav></div>
+    <button class="keelo-menu-toggle" type="button" aria-label="Open site menu" aria-controls="site-menu" aria-expanded="false">☰</button>
+<dialog class="keelo-menu" id="site-menu" aria-labelledby="site-menu-title">
+  <div class="keelo-menu-heading">
+    <h2 id="site-menu-title">Site menu</h2>
+    <form method="dialog"><button type="submit" autofocus aria-label="Close site menu">×</button></form>
+  </div>
+  <nav class="keelo-nav " aria-label="Primary"><a href="/">Overview</a><a href="/architecture">Architecture</a><a href="/proofs" aria-current="page">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav>
+</dialog>
     <main class="keelo-subpage">
 <div class="evidence-reports"><p class="eyebrow">Evidence library</p><h1>Controlled Proofs &amp; Public Submissions</h1>
 <p class="lead">Technical evidence for the Executive Operating System for governed delegated execution, and for Urbyte™ allocation-waste verification. Reports retain their original test scope and maturity classification.</p>

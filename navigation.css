@@ -1,24 +1,58 @@
-.keelo-site-header,
 .keelo-aux-footer {
   background: #050b0d;
-  color: #edf2f3;
-  border-bottom: 1px solid #263538;
   padding: 8px clamp(14px, 4vw, 48px);
 }
-.keelo-site-header {
+.keelo-menu-toggle {
+  position: fixed;
+  z-index: 30;
+  top: max(6px, env(safe-area-inset-top));
+  right: max(8px, env(safe-area-inset-right));
+}
+.keelo-menu-toggle,
+.keelo-menu-heading button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #36575b;
+  border-radius: 6px;
+  background: #071013;
+  color: #edf2f3;
+  cursor: pointer;
+  font: 500 1.25rem Inter, Arial, sans-serif;
+}
+.keelo-menu-toggle:hover,
+.keelo-menu-heading button:hover { border-color: #6cecff; }
+.keelo-menu {
+  box-sizing: border-box;
+  inset: 0 0 0 auto;
+  margin: 0;
+  border: 0;
+  border-left: 1px solid #36575b;
+  width: min(340px, 90vw);
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: 18px;
+  background: #071013;
+  color: #edf2f3;
+}
+.keelo-menu::backdrop { background: rgba(0, 0, 0, .63); }
+.keelo-menu-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  column-gap: 24px;
+  border-bottom: 1px solid #263538;
+  padding-bottom: 12px;
 }
-.keelo-site-header .keelo-brand {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  color: #edf2f3;
-  font: 700 1.1rem "Space Mono", monospace;
-  text-decoration: none;
+.keelo-menu-heading h2 {
+  margin: 0;
+  font: 700 1rem Inter, Arial, sans-serif;
+}
+.keelo-menu-heading form { margin: 0; }
+.keelo-menu .keelo-nav { display: grid; margin-top: 10px; }
+.keelo-menu .keelo-nav a { padding-inline: 10px; border-bottom: 1px solid #263538; }
+@media (prefers-reduced-motion: no-preference) {
+  .keelo-menu[open] { animation: keelo-menu-enter .2s ease-out; }
+  @keyframes keelo-menu-enter { from { transform: translateX(100%); } }
 }
 .keelo-nav {
   display: flex;
@@ -41,7 +75,8 @@
   text-underline-offset: .4em;
 }
 .keelo-nav a:focus-visible,
-.keelo-brand:focus-visible {
+.keelo-menu button:focus-visible,
+.keelo-menu-toggle:focus-visible {
   outline: 2px solid #6cecff;
   outline-offset: 2px;
 }
@@ -78,4 +113,26 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   html:has(#system-map) { scroll-behavior: smooth; }
+}
+
+#system-map + .signal-ticker { margin-top: 0; min-height: 44px; }
+#system-map { min-height: 0; }
+.signal-ticker .ticker-copy { display: flex; align-items: center; gap: inherit; }
+.signal-ticker .ticker-toggle {
+  position: absolute;
+  z-index: 3;
+  inset: 0 0 0 auto;
+  width: 44px;
+  border: 0;
+  border-left: 1px solid #36575b;
+  background: #061014;
+  color: #c6d5d7;
+  cursor: pointer;
+}
+.signal-ticker .ticker-toggle:focus-visible { outline: 2px solid #6cecff; outline-offset: -3px; }
+.signal-ticker.is-paused .ticker-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .signal-ticker .ticker-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; padding-inline: 12px; }
+  .signal-ticker .ticker-copy,
+  .signal-ticker .ticker-toggle { display: none; }
 }

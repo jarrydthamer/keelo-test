@@ -97,7 +97,14 @@
 </head>
 <body>
   <div id="app">
-<div class="keelo-site-header"><a class="keelo-brand" href="/">KƎƎLO™</a><nav class="keelo-nav " aria-label="Primary"><a href="/" aria-current="page">Overview</a><a href="/architecture">Architecture</a><a href="/proofs">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav></div>
+<button class="keelo-menu-toggle" type="button" aria-label="Open site menu" aria-controls="site-menu" aria-expanded="false">☰</button>
+<dialog class="keelo-menu" id="site-menu" aria-labelledby="site-menu-title">
+  <div class="keelo-menu-heading">
+    <h2 id="site-menu-title">Site menu</h2>
+    <form method="dialog"><button type="submit" autofocus aria-label="Close site menu">×</button></form>
+  </div>
+  <nav class="keelo-nav " aria-label="Primary"><a href="/" aria-current="page">Overview</a><a href="/architecture">Architecture</a><a href="/proofs">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav>
+</dialog>
 <main>
 <section id="system-map" class="viewport" aria-label="KEELO system map">
       <h1 class="sr-only" id="keeloPageTitle">Keelo AI Governance and Execution Control</h1>
@@ -128,6 +135,25 @@
           <span>INTERACTIVE SYSTEM MAP</span>
         </div>
       </div>
+    </section>
+<section class="signal-ticker" aria-label="KEELO operating principles">
+      <div class="ticker-track">
+        <span>PERSISTENT STATE</span><b aria-hidden="true">◆</b>
+        <span>GOVERNED EXECUTION</span><b aria-hidden="true">◆</b>
+        <span>EVIDENCE LINEAGE</span><b aria-hidden="true">◆</b>
+        <span>DETERMINISTIC ACTIONS</span><b aria-hidden="true">◆</b>
+        <span>ORGANISATION ISOLATION</span><b aria-hidden="true">◆</b>
+        <span>ADAPTER-BASED BOUNDARIES</span><b aria-hidden="true">◆</b>
+        <div class="ticker-copy" aria-hidden="true">
+        <span>PERSISTENT STATE</span><b aria-hidden="true">◆</b>
+        <span>GOVERNED EXECUTION</span><b aria-hidden="true">◆</b>
+        <span>EVIDENCE LINEAGE</span><b aria-hidden="true">◆</b>
+        <span>DETERMINISTIC ACTIONS</span><b aria-hidden="true">◆</b>
+        <span>ORGANISATION ISOLATION</span><b aria-hidden="true">◆</b>
+        <span>ADAPTER-BASED BOUNDARIES</span><b aria-hidden="true">◆</b>
+        </div>
+      </div>
+      <button class="ticker-toggle" type="button" aria-label="Pause ticker">Ⅱ</button>
     </section>
 <nav class="keelo-nav keelo-section-links" aria-label="Explore the site"><a href="/" aria-current="page">Overview</a><a href="/architecture">Architecture</a><a href="/proofs">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav>
 <section class="keelo-positioning keelo-emblem-backdrop" id="definition" aria-labelledby="definition-title">
