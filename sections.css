@@ -1,0 +1,93 @@
+.sections-menu-button,
+.sections-menu-header button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #36575b;
+  border-radius: 6px;
+  background: #071013;
+  color: #edf2f3;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.sections-menu-button {
+  position: absolute;
+  z-index: 25;
+  top: max(8px, env(safe-area-inset-top));
+  left: max(8px, env(safe-area-inset-left));
+}
+.sections-menu {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0 auto 0 0;
+  margin: 0;
+  border: 0;
+  border-right: 1px solid #36575b;
+  width: min(360px, 90vw);
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: 18px;
+  background: #071013;
+  color: #edf2f3;
+  font: inherit;
+}
+.sections-menu::backdrop { background: rgba(0, 0, 0, .63); }
+.sections-menu-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.sections-menu-header h2,
+.sections-menu-header form { margin: 0; }
+.sections-menu nav { display: grid; margin-top: 16px; }
+.sections-menu nav a { padding: 13px 4px; border-top: 1px solid #263538; }
+.sections-menu a,
+.sections-back a,
+.sections-legals a,
+.sections-home-links a,
+.section-expansion a { color: #6cecff; }
+.sections-back,
+.sections-legals,
+.sections-home-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px clamp(18px, 5vw, 64px);
+}
+.sections-page .sections-back { padding-left: 68px; min-height: 60px; align-items: center; }
+.sections-existing .sections-back,
+.sections-existing .sections-legals { margin-inline: auto; max-width: 1120px; }
+.sections-page .section-heading h1 {
+  margin: 10px 0 16px;
+  font-weight: 300;
+  font-size: clamp(34px, 4.3vw, 64px);
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+.sections-page main > section:first-child,
+.sections-existing main { position: relative; isolation: isolate; }
+.sections-page main > section:first-child::after,
+.sections-existing main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("/keelo-watermark.webp") right top / min(83vw, 1050px) auto no-repeat;
+  opacity: .13;
+}
+.section-expansion { max-width: 1320px; margin: 22px auto; line-height: 1.65; }
+.section-expansion dt { font-weight: 600; margin-top: 12px; }
+.section-expansion dd { margin: 2px 0 8px; }
+.keelo-faq details { padding: 14px 0; border-top: 1px solid var(--line2); }
+.keelo-faq summary { cursor: pointer; font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) {
+  .sections-menu[open] { animation: sections-menu-in .18s ease-out; }
+  @keyframes sections-menu-in { from { transform: translateX(-100%); } }
+}
+
+@media (max-width: 760px) {
+  .sections-landing .sections-menu-button {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 8px 0 4px max(8px, env(safe-area-inset-left));
+  }
+}

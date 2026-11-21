@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/operational-impact",
+      "destination": "/operational-impact.html"
+    },
+    {
+      "source": "/comparison",
+      "destination": "/comparison.html"
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
+    }
+  ]
+}

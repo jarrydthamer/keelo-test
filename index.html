@@ -125,8 +125,15 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="stylesheet" href="/sections.css">
+<script src="/sections.js" defer></script>
 </head>
-<body>
+<body class="sections-landing">
+<button type="button" class="sections-menu-button" aria-label="Open site menu" aria-controls="sections-menu" aria-expanded="false">☰</button>
+<dialog class="sections-menu" id="sections-menu" aria-labelledby="sections-menu-title">
+  <div class="sections-menu-header"><h2 id="sections-menu-title">Site menu</h2><form method="dialog"><button type="submit" autofocus aria-label="Close site menu">×</button></form></div>
+  <nav aria-label="Site pages"><a href="/">Overview</a><a href="/operational-impact">Operational Impact &amp; Execution Path Ledger</a><a href="/comparison">Comparison</a><a href="/pricing">Pricing &amp; Deployment</a><a href="/pricing#contact">Contact</a><a href="/proofs.html">Proofs</a></nav>
+</dialog>
   <div id="app">
     <main class="viewport" aria-label="KEELO system map">
       <h1 class="sr-only" id="keeloPageTitle">Keelo AI Governance and Execution Control</h1>
@@ -365,266 +372,14 @@
       </div>
     </section>
 
-    <section class="impact" id="impact">
-      <div class="section-heading">
-        <div class="eyebrow">Keelo / OPERATIONAL IMPACT</div>
-        <h2>Technical Results You Can Inspect</h2>
-        <p>Latest verified main build: <code>040ce16</code> · 4 November 2026. Build, architecture, verification and No Means No proof gates passed. <a href="proofs.html#build-verification">View build evidence ↗</a></p>
-
-      </div>
-      <div class="stats-grid baseline-six-grid" aria-label="Audited technical baseline statistics">
-        <article class="stat-card"><span class="stat-code">UNIT VERIFICATION</span><strong>1,036</strong><h3>Unit Tests Passed</h3><p>Across 111 test files. Verified main build, 4 November 2026.</p></article>
-        <article class="stat-card"><span class="stat-code">FIRESTORE INTEGRATION</span><strong>79</strong><h3>Integration Tests Passed</h3><p>Across 4 test files against the Firestore emulator on a hosted runner.</p></article>
-
-        <article class="stat-card">
-          <span class="stat-code">01 / CONTINUITY</span>
-          <strong>4,323 / 5,000</strong>
-          <h3>Verified Assets</h3>
-          <p>5,000 assets assessed across an 84-day baseline and 420,000 evidence rows. 4,323 assets verified.</p>
-        </article>
-        <article class="stat-card">
-          <span class="stat-code">02 / GOVERNANCE</span>
-          <strong>1,157</strong>
-          <h3>Controlled Execution and Durable Receipts</h3>
-          <p>The controlled 5,000-asset proof recorded 1,157 authorised effective executions and durable receipts, with zero duplicates. Exactly-once applies to the tested contract and receiver observations.</p>
-        </article>
-        <article class="stat-card">
-          <span class="stat-code">03 / EXECUTION</span>
-          <strong>A$616.6K exposure (modelled)</strong>
-          <h3>Financial Cost Exposure</h3>
-          <p>Modelled electricity-cost exposure of A$616,678.14, calculated from 2,055,593.799 kWh at A$0.30/kWh.</p>
-        </article>
-        <article class="stat-card">
-          <span class="stat-code">04 / CONTROL</span>
-          <strong>1,336.1 t</strong>
-          <h3>Estimated Emissions Exposure</h3>
-          <p>Modelled emissions exposure of 1,336.136 t CO2-e, calculated at 0.65 kg CO2-e/kWh.</p>
-        </article>
-      </div>
-    </section>
-
-
-
-    <section class="impact execution-ledger" aria-labelledby="executionLedgerTitle">
-      <div class="section-heading execution-ledger-heading">
-        <div class="eyebrow">Keelo / EXECUTION PATH LEDGER</div>
-        <h2 id="executionLedgerTitle">From Intent to Verified Outcome.</h2>
-        <p>An instruction becomes an action only when permission is valid. KƎƎLO™ records the result and keeps unresolved work visible.</p>
-      </div>
-      <div class="execution-architecture" aria-label="KƎƎLO governed execution architecture">
-        <div class="execution-architecture-rail" aria-hidden="true">
-          <span>EXECUTION CONTROL PATH</span>
-          <span>AUTHORITY VERIFIED INLINE</span>
-        </div>
-        <ol class="execution-flow">
-          <li class="execution-node">
-            <span class="execution-step">01 / INTENT</span>
-            <strong>System Intent</strong>
-            <p>Intelligence and compute propose an operating objective. Models and agents do not acquire authority by proposing it.</p>
-          </li>
-          <li class="execution-node">
-            <span class="execution-step">02 / INGRESS</span>
-            <strong>Material Ingress</strong>
-            <p>Director coordinates operating priorities. Forge supports construction of bounded capabilities.</p>
-          </li>
-          <li class="execution-node execution-core">
-            <div class="execution-core-head">
-              <span class="execution-step">03 / AUTHORITY BOUNDARY</span>
-              <span class="authority-principle">Capability ≠ Authority</span>
-            </div>
-            <strong>KƎƎLO Core</strong>
-            <p class="execution-core-role">KƎƎLO™ checks the rules, current permission and operating state before acting.</p>
-            <ol class="execution-core-services" aria-label="KƎƎLO Core authority services">
-              <li><code>OrganisationPolicyEvaluator</code></li>
-              <li><code>DelegatedExecutionAuthorityService</code></li>
-              <li><code>GovernedExecutionGateway</code></li>
-            </ol>
-          </li>
-          <li class="execution-node">
-            <span class="execution-step">04 / EFFECT</span>
-            <strong>Authorised Controlled Effect</strong>
-            <p>Approved actions reach connected systems through controlled interfaces.</p>
-          </li>
-          <li class="execution-node">
-            <span class="execution-step">05 / RECEIPT</span>
-            <strong>Durable Receipt</strong>
-            <p>An enduring record shows what happened and what still needs attention.</p>
-          </li>
-          <li class="execution-node">
-            <span class="execution-step">06 / VERIFY</span>
-            <strong>Outcome Verification</strong>
-            <p>Executed, denied and unresolved outcomes remain connected to their governing evidence.</p>
-          </li>
-          <li class="execution-node">
-            <span class="execution-step">07 / RECONCILE</span>
-            <strong>Reconciliation</strong>
-            <p>The requested action, actual result and supporting evidence are checked against each other.</p>
-          </li>
-        </ol>
-        <div class="execution-ledger-footer">
-          <p>The model proposes. KƎƎLO™ governs execution. Authority, evidence and outcome remain linked.</p>
-          <a href="proofs.html">Review controlled proofs and source reports <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    
-<section class="impact" id="platform-comparison" aria-labelledby="platform-comparison-title">
-  <div class="section-heading">
-    <div class="eyebrow">KƎƎLO™ / ENTERPRISE PLATFORM COMPARISON</div>
-    <h2 id="platform-comparison-title">Microsoft. IBM. Google. ServiceNow.<br>KƎƎLO™.</h2>
-    <p>KƎƎLO™ is the Executive Operating System connecting executive intelligence, operational direction, construction, human-defined authority and accountable execution. Compare the full operating architecture, not a single AI-control feature.</p>
-  </div>
-  <div class="platform-comparison-table-wrap">
-    <table class="platform-comparison-table">
-      <thead><tr><th scope="col">Platform</th><th scope="col">Documented Capabilities</th><th scope="col">KƎƎLO™ Architectural Differentiation</th><th scope="col">Technical Sources</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Microsoft Copilot Studio / Agent 365</th><td>Agent lifecycle, tenant and environment policies, tool restrictions, approvals, agent identity and monitoring.</td><td>KƎƎLO™ connects C-Suite intelligence and Director direction to a neutral execution Core, with persistent authority, controlled effects, durable receipts and reconciliation.</td><td><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2" target="_blank" rel="noopener noreferrer">Microsoft governance ↗</a></td></tr>
-        <tr><th scope="row">IBM watsonx Orchestrate</th><td>Building, integrating and governing agents, including human-in-the-loop approvals and audit traceability.</td><td>KƎƎLO™ separates executive direction, Forge construction and organisation-specific policies from its neutral Core, which retains execution state and unresolved obligations.</td><td><a href="https://www.ibm.com/products/watsonx-orchestrate/developers" target="_blank" rel="noopener noreferrer">IBM agent platform ↗</a></td></tr>
-        <tr><th scope="row">Google Cloud Agent Gateway</th><td>Runtime agent connectivity, identity, least-privilege access, policy enforcement, semantic governance and network-layer observability.</td><td>KƎƎLO™ extends from proposed intent into organisation-bound authority, state, execution recovery, durable receipts and verified outcomes.</td><td><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview" target="_blank" rel="noopener noreferrer">Google Agent Gateway ↗</a></td></tr>
-        <tr><th scope="row">ServiceNow AI Control Tower</th><td>AI inventory and governance, steward approvals and deployment controls for agents, models and MCP servers.</td><td>KƎƎLO™ combines an organisation-neutral execution Core with executive operating functions and an explicit authority-to-outcome contract.</td><td><a href="https://www.servicenow.com/docs/r/intelligent-experiences/ai-control-tower/explore-approvals.html" target="_blank" rel="noopener noreferrer">ServiceNow approvals ↗</a></td></tr>
-        <tr class="keelo-comparison-row"><th scope="row">KƎƎLO™</th><td>Executive Operating System integrating C-Suite intelligence, Director, Forge, organisation-neutral Core and governed autonomous execution.</td><td>Demonstrated Core controls include delegated authority, expected-version concurrency, duplicate protection, durable receipts, retained obligations and reconciliation. Rogue Fleet tested 100,000 commands with zero unauthorised or duplicate effective executions.</td><td><a href="proofs.html">KƎƎLO™ technical proofs ↗</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="comparison-footnote">Based on vendor-published product descriptions and KƎƎLO™ technical evidence. Product scopes differ; this is an architectural comparison, not a like-for-like performance benchmark. October 2026.</p>
-</section>
-<section class="impact keelo-pricing" id="pricing" aria-labelledby="pricingTitle">
-  <div class="section-heading">
-    <div class="eyebrow">Keelo / PRICING</div>
-    <h2 id="pricingTitle">Executive Operating Infrastructure That Scales With the Organisation</h2>
-    <p class="pricing-intro">Keelo is licensed against the operational estate it governs, not the number of people using it.</p>
-    <div class="pricing-principles" aria-label="Keelo pricing principles">
-      <span>No per-seat pricing.</span>
-      <span>No AI-token pricing.</span>
-      <span>No charge for passive dashboard access.</span>
-    </div>
-  </div>
-
-  <div class="pricing-grid">
-    <article class="pricing-card">
-      <div class="eyebrow">ENTRY POINT</div>
-      <h3>Proving Deployment</h3>
-      <div class="pricing-price">A$36,000 <span>/ year</span></div>
-      <p>For organisations deploying Keelo across one defined operational domain.</p>
-      <ul>
-        <li>One operational domain</li>
-        <li>Up to 25,000 governed transactions annually</li>
-        <li>Evidence and state persistence</li>
-        <li>Authority and accountability controls</li>
-        <li>Execution receipt capture</li>
-        <li>Verified outcome tracking</li>
-      </ul>
-      <p class="pricing-scope">Implementation scoped separately</p>
-      <a class="pricing-cta" href="#contact">Request Deployment</a>
-    </article>
-
-    <article class="pricing-card pricing-card-featured">
-      <div class="eyebrow">CORE ENTERPRISE DEPLOYMENT</div>
-      <h3>Enterprise</h3>
-      <div class="pricing-price">A$96,000 <span>/ year</span></div>
-      <p>For organisations governing multiple operational processes through Keelo.</p>
-      <ul>
-        <li>Multi-domain deployment</li>
-        <li>Up to 250,000 governed transactions annually</li>
-        <li>Persistent organisational state</li>
-        <li>Evidence provenance</li>
-        <li>Authority and ownership controls</li>
-        <li>Governed execution</li>
-        <li>Durable execution receipts</li>
-        <li>Outcome verification and reconciliation</li>
-        <li>Integration capability</li>
-      </ul>
-      <p class="pricing-scope">Implementation scoped separately</p>
-      <a class="pricing-cta" href="#contact">Talk to Urbyte About Keelo</a>
-    </article>
-
-    <article class="pricing-card">
-      <div class="eyebrow">EXPANDED ESTATE</div>
-      <h3>Enterprise Plus</h3>
-      <div class="pricing-price">A$180,000 <span>/ year</span></div>
-      <p>For complex organisations operating Keelo across multiple business units, systems or operational domains.</p>
-      <ul>
-        <li>Up to 1,000,000 governed transactions annually</li>
-        <li>Multiple operational domains</li>
-        <li>Multiple business units</li>
-        <li>Advanced authority structures</li>
-        <li>Controlled external execution</li>
-        <li>Extended evidence and operational history</li>
-        <li>Enterprise integration architecture</li>
-        <li>Expanded assurance capability</li>
-      </ul>
-      <p class="pricing-scope">Implementation and execution adapters scoped separately</p>
-      <a class="pricing-cta" href="#contact">Discuss Enterprise Deployment</a>
-    </article>
-  </div>
-
-  <aside class="strategic-strip">
-    <div>
-      <div class="eyebrow">STRATEGIC DEPLOYMENTS</div>
-      <h3>Beyond Enterprise Plus</h3>
-      <p>For group-wide, infrastructure-scale or strategically significant deployments, Keelo supports custom enterprise arrangements beyond Enterprise Plus. Scope, transaction capacity, integration architecture and assurance requirements are determined by the deployment.</p>
-    </div>
-    <a class="pricing-cta" href="#contact">Discuss Strategic Deployment</a>
-  </aside>
-
-  <div class="pricing-detail-grid">
-    <article class="pricing-detail pricing-transaction">
-      <div class="eyebrow">COMMERCIAL MODEL</div>
-      <h3>What Is a Governed Transaction?</h3>
-      <p>Keelo does not meter ordinary users, conversations or dashboard activity.</p>
-      <p>A governed transaction is a consequential operating cycle processed through Keelo’s governed runtime.</p>
-      <div class="transaction-path">Evidence <span>→</span> Condition <span>→</span> Authority <span>→</span> Decision <span>→</span> Action <span>→</span> Receipt <span>→</span> Verified Outcome</div>
-      <p>This aligns Keelo’s commercial model with the operational work it governs.</p>
-    </article>
-
-    <article class="pricing-detail">
-      <div class="eyebrow">DEPLOYMENT COMPONENTS</div>
-      <h3>Additional Deployment Components</h3>
-      <h4>Implementation</h4>
-      <p>Organisation configuration, authority structures, evidence sources, operational conditions, integration and controlled deployment are scoped to the environment.</p>
-      <h4>Execution Adapters</h4>
-      <p>Connections that permit authorised execution into external systems are separately scoped.</p>
-      <h4>Keelo Assurance</h4>
-      <p>Additional evidence retention, audit support, governance evidence, ESG reporting and applicable ISO 14001, ISO 27001 or organisational assurance requirements can be added to an enterprise deployment.</p>
-    </article>
-
-    <article class="pricing-detail">
-      <div class="eyebrow">URBYTE + KEELO</div>
-      <h3>Distinct Functions. Separate Commercial Components.</h3>
-      <p><strong>Urbyte verifies allocation waste.</strong></p>
-      <p><strong>Keelo governs what happens next.</strong></p>
-      <p>Where deployed together, Urbyte verification and Keelo Executive Operating System licensing are contracted as separate commercial components.</p>
-    </article>
-  </div>
-
-  <div class="pricing-final">
-    <div>
-      <div class="eyebrow">START WITH ONE OPERATIONAL DOMAIN</div>
-      <h3>Prove the operating model, then extend.</h3>
-      <p>Prove the operating model in a controlled deployment, then extend Keelo across additional systems, resources and operational domains.</p>
-    </div>
-    <a class="pricing-cta" href="#contact">Request a Keelo Deployment</a>
-  </div>
-</section>
-
-<section class="contact-band" id="contact">
-      <div class="contact-copy">
-        <div class="eyebrow">Keelo / CONTACT</div>
-        <h2>Talk to Urbyte about Keelo</h2>
-        <p>For architecture, implementation, pilot programs or integration into your organisation, contact Jarryd directly.</p>
-        <a class="urbyte-link" href="https://www.urbyte.com.au/" target="_blank" rel="noopener">RETURN TO URBYTE.COM.AU ↗</a>
-      </div>
-      <form class="contact-form" action="mailto:jarryd@urbyte.com.au" method="post" enctype="text/plain">
-        <label><span>Name</span><input type="text" name="name" required autocomplete="name"></label>
-        <label><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
-        <label><span>Organisation</span><input type="text" name="organisation" autocomplete="organization"></label>
-        <label class="wide"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
-        <button type="submit">SEND TO JARRYD@URBYTE.COM.AU <span>↗</span></button>
-      </form>
-    </section>
-
-    <footer class="site-footer">
+    <nav class="sections-home-links" aria-label="Explore KƎƎLO™">
+  <a id="impact" href="/operational-impact">Operational Impact</a>
+  <a id="execution-path-ledger" href="/operational-impact#execution-path-ledger">Execution Path Ledger</a>
+  <a id="platform-comparison" href="/comparison">Comparison</a>
+  <a id="pricing" href="/pricing">Pricing &amp; Deployment</a>
+  <a id="contact" href="/pricing#contact">Contact</a>
+</nav>
+<footer class="site-footer">
       <div class="ack">
         <span class="footer-code">ACKNOWLEDGEMENT OF COUNTRY</span>
         <p>Urbyte acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
