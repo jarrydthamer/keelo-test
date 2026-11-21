@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture | KƎƎLO™</title>
+  <meta name="description" content="Explore KƎƎLO™ Core, Runtime, Adapter, Organisation Instance and the governed execution path.">
+  <link rel="canonical" href="https://keelo.au/architecture">
+  <meta property="og:title" content="Architecture | KƎƎLO™">
+  <meta property="og:description" content="Explore KƎƎLO™ Core, Runtime, Adapter, Organisation Instance and the governed execution path.">
+  <meta property="og:url" content="https://keelo.au/architecture">
+  <meta property="og:image" content="https://keelo.au/keelo-hero.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+
+
+
+<style id="keelo-positioning-styles">
+.keelo-positioning{padding:54px 24px;background:#050c12;border-block:1px solid rgba(75,185,235,.23);color:#edf8ff}
+.keelo-positioning-inner{max-width:1120px;margin:auto}
+.keelo-positioning h2{font-size:clamp(28px,4vw,48px);line-height:1.12;margin:8px 0 10px}
+.keelo-positioning h3{font-size:clamp(22px,3vw,34px);margin:24px 0 8px}
+.keelo-positioning p{max-width:850px;line-height:1.65;color:#c9dbe5;margin:12px 0}
+.keelo-positioning .keelo-positioning-kicker{color:#73d4ff;font-size:12px;letter-spacing:2px;font-weight:700}
+.keelo-positioning .keelo-positioning-sub{font-size:clamp(16px,2.1vw,23px);color:#fff}
+.keelo-positioning-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:24px 0;font-size:14px}
+.keelo-positioning-flow span{border:1px solid rgba(90,180,220,.4);padding:12px 14px;border-radius:6px;background:#0c1b25}
+.keelo-positioning-flow b{color:#6bcfff}
+.keelo-positioning a{color:#77d7ff;text-decoration:underline}
+
+/* Decorative emblem beneath the hero; content remains above the watermark. */
+.keelo-emblem-backdrop{position:relative;isolation:isolate;overflow:hidden}
+.keelo-emblem-backdrop::before{content:"";position:absolute;z-index:0;pointer-events:none;inset:0;background:url("keelo-watermark.webp") right center / min(62vw,700px) auto no-repeat;opacity:.13;mix-blend-mode:screen;mask-image:linear-gradient(to right,transparent 20%,#000 65%);-webkit-mask-image:linear-gradient(to right,transparent 20%,#000 65%)}
+.keelo-emblem-backdrop .keelo-positioning-inner{position:relative;z-index:1}
+@media(max-width:720px){.keelo-emblem-backdrop::before{background-position:calc(100% + 120px) center;background-size:580px auto;opacity:.08}}
+</style>
+
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="/navigation.css">
+
+  
+</head>
+<body>
+  <div id="app">
+    <div class="keelo-site-header"><a class="keelo-brand" href="/">KƎƎLO™</a><nav class="keelo-nav " aria-label="Primary"><a href="/">Overview</a><a href="/architecture" aria-current="page">Architecture</a><a href="/proofs">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav></div>
+    <main class="keelo-subpage">
+<section class="impact" id="core-architecture">
+  <div class="section-heading"><h1>Core Architecture</h1><p>Keelo separates neutral governance primitives from orchestration, external integrations and organisation-specific context. This keeps the core deterministic and the integration boundary explicit.</p></div>
+  <div class="keelo-detail-grid"><article class="stat-card"><h3>Core</h3><p>Neutral governance primitives define the invariant semantics Keelo relies on.</p><ul><li>Identity and authority</li><li>State and transitions</li><li>Evidence references</li><li>Obligations and decisions</li></ul></article><article class="stat-card"><h3>Runtime</h3><p>The runtime orchestrates governed operations and advances state using deterministic transition rules.</p><ul><li>Command orchestration</li><li>Concurrency control</li><li>Retries and idempotency</li><li>Execution receipts</li></ul></article><article class="stat-card"><h3>Adapter</h3><p>Adapters are the only boundary through which Keelo communicates with source and execution systems.</p><ul><li>Typed interfaces</li><li>Input normalisation</li><li>Output verification</li><li>Failure isolation</li></ul></article><article class="stat-card"><h3>Organisation Instance</h3><p>Each organisation operates inside an isolated context containing its policies, state and integration bindings.</p><ul><li>Tenant isolation</li><li>Organisation policies</li><li>Scoped credentials</li><li>Independent state</li></ul></article></div>
+</section>
+<section class="impact" id="director-forge">
+  <div class="section-heading"><h2>Director and Forge</h2></div>
+  <div class="keelo-detail-grid">
+    <article class="stat-card"><h3>Director</h3><p>Coordinates operating priorities and delegates work within the organisation’s policies and authority limits.</p></article>
+    <article class="stat-card"><h3>Forge</h3><p>Defines bounded capabilities and executes authorised actions through adapters. Each governed outcome produces a durable execution receipt.</p></article>
+  </div>
+</section>
+<section class="impact" id="system-boundaries">
+  <div class="section-heading"><h2>System Boundaries</h2><p>Keelo does not become the business systems it governs. It preserves the governance record and coordinates through adapters, leaving raw source data and domain ownership where they belong.</p></div>
+  <div class="keelo-detail-grid"><article class="stat-card"><h3>No raw-source ingestion by default</h3><p>Keelo references and normalises only the evidence required for governance rather than duplicating entire source datasets.</p><ul><li>Minimal evidence footprint</li><li>Reference over replication</li><li>Explicit retention rules</li></ul></article><article class="stat-card"><h3>Does not replace source systems</h3><p>CRM, finance, HR, project and operational systems remain authoritative for their native domains.</p><ul><li>Domain ownership preserved</li><li>Source-of-truth boundaries</li><li>Adapter contracts</li></ul></article><article class="stat-card"><h3>No organisation business logic in Core</h3><p>Organisation-specific rules belong in scoped configuration and policies, not in neutral Keelo primitives.</p><ul><li>Portable core</li><li>Configurable policy</li><li>Reduced coupling</li></ul></article><article class="stat-card"><h3>Adapter-only integration boundary</h3><p>All external effects cross typed adapters so they can be verified, retried, isolated and audited.</p><ul><li>Controlled side effects</li><li>Integration observability</li><li>Failure containment</li></ul></article></div>
+</section>
+<section class="impact" id="by-design">
+  <div class="section-heading"><h2>By Design</h2><p>Keelo is intentionally conservative at its core: persistent, traceable, deterministic and isolated by organisation. Those constraints make it safe to coordinate systems that were never designed to share governance.</p></div>
+  <div class="keelo-detail-grid"><article class="stat-card"><h3>Persistent state</h3><p>Authoritative state survives processes, sessions and system restarts.</p><ul><li>Durable storage</li><li>Explicit lifecycle</li><li>Replayable history</li></ul></article><article class="stat-card"><h3>Evidence lineage</h3><p>Inputs, decisions, approvals and outputs remain connected by references.</p><ul><li>Provenance chain</li><li>Tamper-evident records</li><li>Source attribution</li></ul></article><article class="stat-card"><h3>Deterministic execution</h3><p>Equivalent commands against equivalent state resolve through the same governed path.</p><ul><li>Stable transition rules</li><li>Idempotency controls</li><li>Predictable failure modes</li></ul></article><article class="stat-card"><h3>Isolation &amp; concurrency</h3><p>Organisation boundaries and concurrent updates are treated as first-class correctness concerns.</p><ul><li>Organisation isolation</li><li>Optimistic/explicit locking</li><li>Conflict detection</li></ul></article></div>
+</section>
+<section class="impact execution-ledger" aria-labelledby="executionLedgerTitle">
+      <div class="section-heading execution-ledger-heading">
+        <div class="eyebrow">Keelo / EXECUTION PATH LEDGER</div>
+        <h2 id="executionLedgerTitle">From Intent to Verified Outcome.</h2>
+        <p>An instruction becomes an action only when permission is valid. KƎƎLO™ records the result and keeps unresolved work visible.</p>
+      </div>
+      <div class="execution-architecture" aria-label="KƎƎLO governed execution architecture">
+        <div class="execution-architecture-rail" aria-hidden="true">
+          <span>EXECUTION CONTROL PATH</span>
+          <span>AUTHORITY VERIFIED INLINE</span>
+        </div>
+        <ol class="execution-flow">
+          <li class="execution-node">
+            <span class="execution-step">01 / INTENT</span>
+            <strong>System Intent</strong>
+            <p>Intelligence and compute propose an operating objective. Models and agents do not acquire authority by proposing it.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">02 / INGRESS</span>
+            <strong>Material Ingress</strong>
+            <p>Director coordinates operating priorities. Forge supports construction of bounded capabilities.</p>
+          </li>
+          <li class="execution-node execution-core">
+            <div class="execution-core-head">
+              <span class="execution-step">03 / AUTHORITY BOUNDARY</span>
+              <span class="authority-principle">Capability ≠ Authority</span>
+            </div>
+            <strong>KƎƎLO Core</strong>
+            <p class="execution-core-role">KƎƎLO™ checks the rules, current permission and operating state before acting.</p>
+            <ol class="execution-core-services" aria-label="KƎƎLO Core authority services">
+              <li><code>OrganisationPolicyEvaluator</code></li>
+              <li><code>DelegatedExecutionAuthorityService</code></li>
+              <li><code>GovernedExecutionGateway</code></li>
+            </ol>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">04 / EFFECT</span>
+            <strong>Authorised Controlled Effect</strong>
+            <p>Approved actions reach connected systems through controlled interfaces.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">05 / RECEIPT</span>
+            <strong>Durable Receipt</strong>
+            <p>An enduring record shows what happened and what still needs attention.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">06 / VERIFY</span>
+            <strong>Outcome Verification</strong>
+            <p>Executed, denied and unresolved outcomes remain connected to their governing evidence.</p>
+          </li>
+          <li class="execution-node">
+            <span class="execution-step">07 / RECONCILE</span>
+            <strong>Reconciliation</strong>
+            <p>The requested action, actual result and supporting evidence are checked against each other.</p>
+          </li>
+        </ol>
+        <div class="execution-ledger-footer">
+          <p>The model proposes. KƎƎLO™ governs execution. Authority, evidence and outcome remain linked.</p>
+          <a href="proofs.html">Review controlled proofs and source reports <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    </main>
+    <footer class="site-footer">
+      <div class="ack">
+        <span class="footer-code">ACKNOWLEDGEMENT OF COUNTRY</span>
+        <p>Urbyte acknowledges the Traditional Custodians of Country throughout Australia and recognises their continuing connection to land, waters and community. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.</p>
+      </div>
+      <nav class="keelo-nav keelo-footer-nav" aria-label="Footer"><a href="/">Overview</a><a href="/architecture">Architecture</a><a href="/proofs">Proofs</a><a href="/applications">Applications</a><a href="/differentiation">Differentiation</a><a href="/#contact">Contact</a></nav>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> URBYTE. ALL RIGHTS RESERVED. ACN 692 885 019</span>
+        <nav aria-label="Legal">
+          <a href="terms.html">TERMS &amp; CONDITIONS</a>
+          <span>//</span>
+          <a href="privacy.html">PRIVACY</a>
+          <span>//</span>
+          <a href="mailto:jarryd@urbyte.com.au">CONTACT</a>
+        </nav>
+      </div>
+    </footer>
+    </div>
+    <script src="/script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+.keelo-site-header,
+.keelo-aux-footer {
+  background: #050b0d;
+  color: #edf2f3;
+  border-bottom: 1px solid #263538;
+  padding: 8px clamp(14px, 4vw, 48px);
+}
+.keelo-site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 24px;
+}
+.keelo-site-header .keelo-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #edf2f3;
+  font: 700 1.1rem "Space Mono", monospace;
+  text-decoration: none;
+}
+.keelo-nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: clamp(6px, 1.5vw, 24px);
+}
+.keelo-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 4px;
+  color: #c6d5d7;
+  font: 500 .875rem Inter, Arial, sans-serif;
+  text-decoration: none;
+}
+.keelo-nav a:hover,
+.keelo-nav a[aria-current="page"] {
+  color: #6cecff;
+  text-decoration: underline;
+  text-underline-offset: .4em;
+}
+.keelo-nav a:focus-visible,
+.keelo-brand:focus-visible {
+  outline: 2px solid #6cecff;
+  outline-offset: 2px;
+}
+.keelo-section-links {
+  justify-content: center;
+  padding: 8px 14px;
+  background: #050b0d;
+}
+.keelo-footer-nav { margin: 16px 0; }
+.keelo-aux-footer { border-top: 1px solid #263538; }
+.keelo-subpage .section-heading h1 {
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.1;
+  margin: 8px 0 12px;
+}
+.keelo-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.keelo-detail-grid h3 { margin-top: 0; }
+.keelo-detail-grid ul {
+  padding-inline-start: 20px;
+  line-height: 1.65;
+  color: #c6d5d7;
+}
+.poster .hotspot {
+  min-width: 44px;
+  min-height: 44px;
+}
+@media (min-width: 761px) {
+  #system-map { height: auto; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:has(#system-map) { scroll-behavior: smooth; }
+}
