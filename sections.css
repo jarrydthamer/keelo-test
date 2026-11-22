@@ -206,3 +206,18 @@
   margin-block: 16px;
 }
 .application-grid .application-card-wide { grid-column: 1 / -1; }
+
+.hero-proof-tile { text-align: left; }
+.panel-proof-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid rgba(108, 236, 255, .35);
+  border-radius: 6px;
+  color: #a9dce0;
+  background: #0c1b25;
+  text-decoration: none;
+}
+.panel-proof-link:hover,
+.panel-proof-link:focus-visible { border-color: #6cecff; color: #edf2f3; }

@@ -150,14 +150,14 @@
         <button class="hotspot overview" data-id="overview" aria-label="Open KƎƎLO™ overview">
           <span class="sr-only">KƎƎLO™ overview</span>
         </button>
-        <a class="hotspot what hero-proof-tile" href="/proofs.html">
+        <button type="button" class="hotspot what hero-proof-tile" data-id="proofs" aria-haspopup="dialog">
           <span class="hero-proof-copy">
             <strong>Controlled Proofs</strong>
             <span>420,000 compute telemetry rows</span>
             <span>84-day fleet baselines</span>
             <span>Runtime AI guardrail tests</span>
           </span>
-        </a>
+        </button>
         <button class="hotspot core" data-id="core" aria-label="Open Core Architecture">
           <span class="sr-only">Core Architecture</span>
         </button>
@@ -443,6 +443,7 @@
             <div class="accent"></div>
             <p class="lead" id="lead"></p>
 
+            <p id="panel-proof-link" hidden><a class="panel-proof-link" href="/proofs.html">View controlled proofs and public submissions</a></p>
             <div class="sections" id="sections"></div>
           </article>
         </div>

@@ -13,20 +13,17 @@ const content = {
       {title:"Organisation agnostic", text:"The core does not encode one organisation\'s workflow. Organisation-specific manifests remain outside KƎƎLO™ Core. Urbyte™ is a domain-specific implementation built on KƎƎLO™.", bullets:["Reusable governance primitives","Organisation-scoped configuration","Adapter-driven integrations"]}
     ]
   },
-  what: {
-    code:"02", label:"DEFINITION",
-    eyebrow:"KƎƎLO™ / WHAT IT IS",
-    title:"What KƎƎLO™ is",
-    intro:"KƎƎLO™ is the persistent governance and execution layer between organisational intent and the systems that carry it out. It becomes the canonical operational system of record for governed actions.",
-    summary:"An Executive Operating System for governed operations — not an AI assistant, chatbot, workflow product, dashboard, monitoring tool, FinOps product, policy engine or Urbyte-specific application.",
-    sections:[
-      {title:"WRSaaS",text:"WRSaaS means Waste Recovery Software as a Service: a service model for detecting, verifying, governing, recovering, reducing and preventing systemic operational waste.",bullets:["Waste recovery","Waste reduction","Waste prevention"]},
-      {title:"Operating loop",text:"Detect → Verify → Govern → Act → Measure → Reduce → Prevent",bullets:["Evidence before action","Authorised execution","Measured and verified outcomes"]},
-      {title:"Urbyte relationship",text:"Urbyte™ performs domain-specific evidence qualification. Built on KƎƎLO™, the organisation-neutral Executive Operating System. Urbyte™ proves the condition. KƎƎLO™ governs the response.",bullets:["Organisation-specific manifests remain outside KƎƎLO™ Core","Evidence and persistent state govern execution","Durable execution receipts preserve accountability"]},
-      {title:"Governance layer",text:"KƎƎLO™ defines which actions are permissible, under what authority and with what evidence.",bullets:["Explicit authority model","Policy-bound transitions","Controlled exceptions"]},
-      {title:"Operational record",text:"It maintains a canonical, organisation-scoped view of decisions, obligations, actions and state.",bullets:["Single governed context","State history","Durable references"]},
-      {title:"Execution after verification",text:"An action is executed only after identity, authority, state and evidence requirements are satisfied.",bullets:["Precondition checks","Deterministic execution","Post-action verification"]},
-      {title:"Continuity engine",text:"Operational knowledge remains available even as staff, software and interfaces change.",bullets:["Persistent state","Repeatable execution","Reduced key-person dependence"]}
+  proofs: {
+    code: "02",
+    label: "VALIDATION",
+    eyebrow: "KƎƎLO™ / VALIDATION",
+    title: "Controlled Proofs",
+    intro: "Inspect the controlled results for compute verification, fleet baselines and governed AI execution.",
+    summary: "Evidence from bounded tests, with source reports and scope available on the Validation page.",
+    sections: [
+      {title: "Compute telemetry", text: "The data centre proof processed 420,000 evidence rows across 5,000 assets.", bullets: ["84-day baseline"]},
+      {title: "Fleet verification", text: "The enterprise fleet proof evaluated allocation and usage across three billing cycles.", bullets: ["1,000-service and 5,000-service controlled proofs"]},
+      {title: "Runtime AI guardrails", text: "Rogue Fleet and No Means No tested whether governed execution respects authority.", bullets: ["Controlled test results and supporting reports"]}
     ]
   },
   core: {
@@ -106,6 +103,7 @@ function openPanel(id, trigger){
   eyebrow.textContent = d.eyebrow;
   title.textContent = d.title;
   lead.textContent = d.intro;
+  document.getElementById("panel-proof-link").hidden = id !== "proofs";
   railCode.textContent = `${d.code} / ${d.label}`;
 
   sections.innerHTML = d.sections.map((s,i)=>`
