@@ -163,7 +163,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: .55cqw;
+  gap: .4cqw;
   padding: .28cqw;
   background: #090e10;
   font-size: .76cqw;
@@ -180,10 +180,17 @@
   margin: .62cqw 0 .42cqw;
   border-top: 1px solid #6cecff;
 }
-.hero-proof-copy > span::before {
-  content: "•";
-  color: #6cecff;
-  margin-right: .45cqw;
+.hero-proof-result {
+  display: grid;
+  grid-template-columns: 5.25cqw minmax(0, 1fr);
+  align-items: center;
+  gap: .5cqw;
+  min-height: 1.7cqw;
+  border-bottom: 1px solid rgba(108, 236, 255, .2);
+}
+.hero-proof-result b {
+  color: #9bd5d8;
+  font: 700 .98cqw/1 "Space Mono", monospace;
 }
 .keelo-positioning .positioning-link,
 .positioning-topics a {
