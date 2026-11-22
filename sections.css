@@ -159,19 +159,21 @@
 }
 .hero-proof-copy {
   position: absolute;
-  inset: 9% 5% 7% 10%;
+  inset: 10% 5% 7% 10%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: .4cqw;
+  gap: .65cqw;
   padding: .28cqw;
-  background: #090e10;
+  background: #090d0e;
+  color: #d5dbdd;
   font-size: .76cqw;
   line-height: 1.22;
 }
 .hero-proof-copy strong {
+  color: #edf2f3;
   font-size: 1.3cqw;
-  font-weight: 500;
+  font-weight: 400;
 }
 .hero-proof-copy strong::after {
   content: "";
@@ -181,17 +183,20 @@
   border-top: 1px solid #6cecff;
 }
 .hero-proof-result {
-  display: grid;
-  grid-template-columns: 5.25cqw minmax(0, 1fr);
-  align-items: center;
-  gap: .5cqw;
-  min-height: 1.7cqw;
-  border-bottom: 1px solid rgba(108, 236, 255, .2);
+  position: relative;
+  padding-left: .85cqw;
 }
-.hero-proof-result b {
-  color: #9bd5d8;
-  font: 700 .98cqw/1 "Space Mono", monospace;
+.hero-proof-result::before {
+  content: "";
+  position: absolute;
+  top: .49em;
+  left: 0;
+  width: .22cqw;
+  height: .22cqw;
+  border-radius: 50%;
+  background: #6cecff;
 }
+.hero-proof-result b { font-weight: inherit; }
 .keelo-positioning .positioning-link,
 .positioning-topics a {
   display: inline-flex;
